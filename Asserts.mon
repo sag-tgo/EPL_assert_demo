@@ -82,11 +82,11 @@ event Assert {
 			switch(actual as castedVal) {
 				case decimal: {
 					decimal tol := 1e-398d;
-					assertBase((castedVal-<decimal>expected).nextafter(1.0d) = tol, testName, message);
+					assertBase((castedVal-<decimal>expected).nextAfter(1.0d) = tol, testName, message);
 				}
 				case float: {
 					float tol := 5e-324;
-					assertBase((castedVal-<float>expected).nextafter(1.0) = tol, testName, message);
+					assertBase((castedVal-<float>expected).nextAfter(1.0) = tol, testName, message);
 				}
 				case string: {
 					assertBase(castedVal = <string>expected, testName, message);
@@ -117,11 +117,11 @@ event Assert {
 			switch(testVal as castedVal) {
 				case decimal: {
 					decimal tol := 1e-398d;
-					assertBase((castedVal-<decimal>refVal).nextafter(1.0d) != tol, testName, message);
+					assertBase((castedVal-<decimal>refVal).nextAfter(1.0d) != tol, testName, message);
 				}
 				case float: {
 					float tol := 5e-324;
-					assertBase((castedVal-<float>refVal).nextafter(1.0) != tol, testName, message);
+					assertBase((castedVal-<float>refVal).nextAfter(1.0) != tol, testName, message);
 				}
 				default: {
 					assertBase(testVal != refVal, testName, message);
