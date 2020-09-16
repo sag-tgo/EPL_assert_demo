@@ -45,7 +45,7 @@
 	-->
 
 	<writers>
-		<writer classname="TravisCIWriter" module="pysys.writer.ci"></writer>
+		<writer classname="TravisCIWriter" module="pysys.writer.ci"/>
 
 		<writer classname="JUnitXMLResultsWriter" module="pysys.writer">
 			<property name="outputDir" value="${testRootDir}/pysys-junit-report"/>
