@@ -17,16 +17,17 @@ class PySysTest(BaseTest):
 		corr.shutdown()
 
 	def validate(self):
+		self.addOutcome(PASSED)  # Otherwise PySys reports not verified.
 		with open(os.path.join(self.output, "correlator.log")) as f:
 			msg = ""
 			for line in f:
+				# TODO: Checking for "ERROR" in line is a bit fragile
 				if len(msg) > 0:
-					if("ERROR" not in line):
+					if "ERROR" not in line:
 						msg += line
 						
-				if("ERROR" in line):
+				if "ERROR" in line:
 					if len(msg) > 0:
-						
 						try:
 							self.assertThat("False", assertMessage=msg.split("actual: ")[0])
 							actual = msg.split("actual: ")[1].split("\n")[0]
@@ -44,5 +45,3 @@ class PySysTest(BaseTest):
 						msg = ""
 					msg = line.split("-")[3:]
 					msg = "-".join(msg)
-		
-		
