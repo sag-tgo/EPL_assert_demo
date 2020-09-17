@@ -3,12 +3,12 @@
 
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>Assert</TITLE>
-<META NAME="keywords" CONTENT="Assert&nbsp;event">
+<TITLE>Expect</TITLE>
+<META NAME="keywords" CONTENT="Expect&nbsp;event">
 <LINK REL="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
 <SCRIPT type="text/javascript">function windowTitle()
           {
-          parent.document.title="Assert";
+          parent.document.title="Expect";
           }
           </SCRIPT>
 <NOSCRIPT></NOSCRIPT>
@@ -16,9 +16,9 @@
 <BODY BGCOLOR="white" onload="windowTitle();">
 <TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
 <TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Assert.html"><B>FRAMES</B></A>  &nbsp;
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Expect.html"><B>FRAMES</B></A>  &nbsp;
 
-            &nbsp;<A target="_top" HREF="Assert.html"><B>NO FRAMES</B></A>  &nbsp;
+            &nbsp;<A target="_top" HREF="Expect.html"><B>NO FRAMES</B></A>  &nbsp;
             &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
 <NOSCRIPT>
 <A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
@@ -44,32 +44,32 @@
 <HR>
 <H2>
 <FONT SIZE="-1">com.apamax.test</FONT>
-<BR>Event Assert</H2>
-<HR>An assertion helper. Throws an exception on a failed assertion.<HR>
+<BR>Event Expect</H2>
+<HR>An expectation helper. Logs at ERROR on failed expectations.<HR>
 <A NAME="action_summary"></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
 <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
 <TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2"><B>Action summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#equal()">equal</A></B>(any&nbsp;value1,&nbsp;any&nbsp;value2,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Expect.html#equal()">equal</A></B>(any&nbsp;value1,&nbsp;any&nbsp;value2,&nbsp;string&nbsp;message)</CODE>
 <br>
-<br>Assert that two values are equal.</TD>
+<br>Expect that two values are equal.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#fail()">fail</A></B>(string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Expect.html#fail()">fail</A></B>(string&nbsp;message)</CODE>
 <br>
-<br>Fail an assertion.</TD>
+<br>Fail an expectation.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#false()">false</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Expect.html#false()">false</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
 <br>
-<br>Assert that a boolean value is false.</TD>
+<br>Expect that a boolean value is false.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#true()">true</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Expect.html#true()">true</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
 <br>
-<br>Assert that a boolean value is true.</TD>
+<br>Expect that a boolean value is true.</TD>
 </TR>
 </TABLE>&nbsp;<A NAME="action_detail"></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
@@ -79,7 +79,7 @@
 </TABLE>
 <A NAME="equal()"></A>
 <H3>equal</H3>
-<PRE>void&nbsp;static <B>equal</B>(any&nbsp;value1,&nbsp;any&nbsp;value2,&nbsp;string&nbsp;message)</PRE>Assert that two values are equal.<DL>
+<PRE>void&nbsp;static <B>equal</B>(any&nbsp;value1,&nbsp;any&nbsp;value2,&nbsp;string&nbsp;message)</PRE>Expect that two values are equal.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
@@ -88,49 +88,49 @@
 <DD>
 <tt>value2</tt>&nbsp;-&nbsp;the second value.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being expected.</DD>
 </DL>
 <HR>
 <A NAME="fail()"></A>
 <H3>fail</H3>
-<PRE>void&nbsp;static <B>fail</B>(string&nbsp;message)</PRE>Fail an assertion.<DL>
+<PRE>void&nbsp;static <B>fail</B>(string&nbsp;message)</PRE>Fail an expectation.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;the reason for the assertion failure.</DD>
+<tt>message</tt>&nbsp;-&nbsp;the reason for the expectation failure.</DD>
 </DL>
 <HR>
 <A NAME="false()"></A>
 <H3>false</H3>
-<PRE>void&nbsp;static <B>false</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is false.<DL>
+<PRE>void&nbsp;static <B>false</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Expect that a boolean value is false.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
-<tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is false.</DD>
+<tt>value</tt>&nbsp;-&nbsp;the value that is expected to be false.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being expected.</DD>
 </DL>
 <HR>
 <A NAME="true()"></A>
 <H3>true</H3>
-<PRE>void&nbsp;static <B>true</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is true.<DL>
+<PRE>void&nbsp;static <B>true</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Expect that a boolean value is true.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
-<tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is true.</DD>
+<tt>value</tt>&nbsp;-&nbsp;the value that is expected to be true.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being expected.</DD>
 </DL>
 <HR>
 <HR>
 <TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
 <TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Assert.html"><B>FRAMES</B></A>  &nbsp;
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Expect.html"><B>FRAMES</B></A>  &nbsp;
 
-            &nbsp;<A target="_top" HREF="Assert.html"><B>NO FRAMES</B></A>  &nbsp;
+            &nbsp;<A target="_top" HREF="Expect.html"><B>NO FRAMES</B></A>  &nbsp;
             &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
 <NOSCRIPT>
 <A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
