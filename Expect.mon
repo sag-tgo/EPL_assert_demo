@@ -1,0 +1,73 @@
+/* Copyright (c) 2020 Software AG, Darmstadt, Germany and/or its licensors
+
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied.
+ * See the License for the specific language governing permissions and limitations under the License.
+ */
+
+package com.apamax.test;
+
+using com.apama.exceptions.Exception;
+using com.apamax.test.Assert;
+
+/**
+ * An expectation helper.
+ * Logs at ERROR on failed expectations.
+ */
+event Expect {
+	/**
+	 * Fail an expectation.
+	 * @param message the reason for the expectation failure.
+	 */
+	static action fail(string message) {
+		try {
+			Assert.fail(message);
+		} catch (Exception e) {
+			log e.getMessage() at ERROR;
+		}
+	}
+
+	/**
+	 * Expect that a boolean value is true.
+	 * @param value the value that is expected to be true.
+	 * @param message description of what's being expected.
+	 */
+	static action #true(boolean value, string message) {
+		try {
+			Assert.#true(value, message);
+		} catch (Exception e) {
+			log e.getMessage() at ERROR;
+		}
+	}
+
+	/**
+	 * Expect that a boolean value is false.
+	 * @param value the value that is expected to be false.
+	 * @param message description of what's being expected.
+	 */
+	static action #false(boolean value, string message) {
+		try {
+			Assert.#false(value, message);
+		} catch (Exception e) {
+			log e.getMessage() at ERROR;
+		}
+	}
+
+	/**
+	 * Expect that two values are equal.
+	 * @param value1 the first value.
+	 * @param value2 the second value.
+	 * @param message description of what's being expected.
+	 */
+	static action equal(any value1, any value2, string message) {
+		try {
+			Assert.equal(value1, value2, message);
+		} catch (Exception e) {
+			log e.getMessage() at ERROR;
+		}
+	}
+}

@@ -1,3 +1,14 @@
+/* Copyright (c) 2020 Software AG, Darmstadt, Germany and/or its licensors
+
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied.
+ * See the License for the specific language governing permissions and limitations under the License.
+ */
+
 package com.apamax.test;
 
 using com.apama.exceptions.Exception;
@@ -5,7 +16,7 @@ using com.apama.exceptions.Exception;
 /**
  * An assertion class for testing epl applications
  */
-event Assert {
+event Asserts {
 
 	// Private
 	boolean isEnabled;
@@ -14,8 +25,8 @@ event Assert {
 	/** Creates an instance of the Assert event to run assertions from.
 	 * this will set private variables logLevel to "ERROR" and isEnabled to true
 	 */
-	static action create() returns Assert {
-		Assert temp := new Assert;
+	static action create() returns Asserts {
+		Asserts temp := new Asserts;
 
 		temp.isEnabled := true;
 		temp.logLevel := "ERROR";
@@ -28,8 +39,8 @@ event Assert {
 	 *	<boolean>isEnabled - set to true to enable logging
 	 *	<string>logLevel - either "ERROR" or "DEBUG" sets logging level.
 	 */
-	static action createCustom(dictionary<string, any> options) returns Assert {
-		Assert temp := new Assert;
+	static action createCustom(dictionary<string, any> options) returns Asserts {
+		Asserts temp := new Asserts;
 
 		if(options.hasKey("isEnabled")) {
 			temp.isEnabled := <boolean>options["isEnabled"];

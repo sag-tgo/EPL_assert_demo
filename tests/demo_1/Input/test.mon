@@ -1,5 +1,5 @@
 using com.apama.exceptions.Exception;
-using com.apamax.test.Assert;
+using com.apamax.test.Asserts;
 
 event device {
 	string name;
@@ -25,7 +25,7 @@ monitor AssertTest {
 			"logLevel": "ERROR"
 		};
 
-		Assert asserter := Assert.createCustom(options);
+		Asserts asserter := Asserts.createCustom(options);
 
 		device device1 := device.create("CZ-3", "droid", "127.0.0.1");
 		device device2 := device.create("CZ-3", "droid", "127.2.0.1");

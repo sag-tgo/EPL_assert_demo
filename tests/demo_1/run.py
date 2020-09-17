@@ -8,6 +8,8 @@ class PySysTest(BaseTest):
 		corr = CorrelatorHelper(self, name='correlator')
 		corr.start(logfile='correlator.log')
 		corr.injectEPL('../../../Asserts.mon')
+		corr.injectEPL('../../../Assert.mon')
+		corr.injectEPL('../../../Expect.mon')
 		tests = os.listdir(self.input)
 		tests.sort()
 		for test in tests:
