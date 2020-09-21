@@ -1,0 +1,17 @@
+using com.apama.exceptions.Exception;
+using com.apamax.test.Assert;
+using com.apamax.test.AssertHelper;
+
+monitor TestAssert {
+
+	action logAtError(string message) {
+		log message at ERROR;
+	}
+
+	action onload() {
+		Assert asserter := new Assert;
+		asserter.onFailedAssertion := AssertHelper.#die;
+		asserter.#true(false, "the sky is blue");
+		asserter.equal(2 + 2, 5, "Two plus two = four");
+	}
+}

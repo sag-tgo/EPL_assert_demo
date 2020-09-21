@@ -1,0 +1,55 @@
+
+
+package com.apamax.test;
+
+using com.apama.exceptions.Exception;
+
+/**
+ * An assertion class for testing epl applications
+ */
+event Assert {
+
+	action<string> onFailedAssertion;
+
+	/**
+	 * Fail an assertion.
+	 * @param message the reason for the assertion failure.
+	 */
+	action fail(string message) {
+		onFailedAssertion(message);
+	}
+
+	/**
+	 * Assert that a boolean value is true.
+	 * @param value the value that is being asserted is true.
+	 * @param message description of what's being asserted.
+	 */
+	action #true(boolean value, string message) {
+		if not value {
+			fail(message);
+		}
+	}
+
+	/**
+	 * Assert that a boolean value is false.
+	 * @param value the value that is being asserted is false.
+	 * @param message description of what's being asserted.
+	 */
+	action #false(boolean value, string message) {
+		if value {
+			fail(message);
+		}
+	}
+
+	/**
+	 * Assert that two values are equal.
+	 * @param value1 the first value.
+	 * @param value2 the second value.
+	 * @param message description of what's being asserted.
+	 */
+	action equal(any value1, any value2, string message) {
+		if value1 != value2 {
+			fail(message);
+		}
+	}
+}
