@@ -16,7 +16,7 @@ using com.apama.exceptions.Exception;
 /**
  * An assertion class for testing epl applications
  */
-event Asserts {
+event Assert {
 
 	// Private
 	boolean isEnabled;
@@ -25,8 +25,8 @@ event Asserts {
 	/** Creates an instance of the Assert event to run assertions from.
 	 * this will set private variables logLevel to "ERROR" and isEnabled to true
 	 */
-	static action create() returns Asserts {
-		Asserts temp := new Asserts;
+	static action create() returns Assert {
+		Assert temp := new Assert;
 
 		temp.isEnabled := true;
 		temp.logLevel := "ERROR";
@@ -39,8 +39,8 @@ event Asserts {
 	 *	<boolean>isEnabled - set to true to enable logging
 	 *	<string>logLevel - either "ERROR" or "DEBUG" sets logging level.
 	 */
-	static action createCustom(dictionary<string, any> options) returns Asserts {
-		Asserts temp := new Asserts;
+	static action createCustom(dictionary<string, any> options) returns Assert {
+		Assert temp := new Assert;
 
 		if(options.hasKey("isEnabled")) {
 			temp.isEnabled := <boolean>options["isEnabled"];
