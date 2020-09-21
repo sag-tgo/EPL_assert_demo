@@ -1,5 +1,5 @@
 using com.apama.exceptions.Exception;
-using com.apamax.test.Assert;
+using com.apamax.test.#static.Assert;
 
 monitor TestAssert {
 	action onload() {

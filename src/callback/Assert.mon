@@ -1,6 +1,6 @@
 
 
-package com.apamax.test;
+package com.apamax.test.callback;
 
 using com.apama.exceptions.Exception;
 

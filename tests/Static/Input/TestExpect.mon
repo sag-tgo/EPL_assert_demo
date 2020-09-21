@@ -1,5 +1,5 @@
 using com.apama.exceptions.Exception;
-using com.apamax.test.Expect;
+using com.apamax.test.#static.Expect;
 
 monitor TestExpect {
 	action onload() {

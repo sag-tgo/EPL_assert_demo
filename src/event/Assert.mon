@@ -9,7 +9,7 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-package com.apamax.test;
+package com.apamax.test.#event;
 
 using com.apama.exceptions.Exception;
 

@@ -9,10 +9,10 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-package com.apamax.test;
+package com.apamax.test.#static;
 
 using com.apama.exceptions.Exception;
-using com.apamax.test.Assert;
+using com.apamax.test.#static.Assert;
 
 /**
  * An expectation helper.
