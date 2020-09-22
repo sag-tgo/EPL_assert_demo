@@ -12,6 +12,7 @@
 package com.apamax.test.#static;
 
 using com.apama.exceptions.Exception;
+using com.apama.exceptions.StackTraceElement;
 
 /**
  * An assertion helper.
@@ -23,7 +24,15 @@ event Assert {
 	 * @param message the reason for the assertion failure.
 	 */
 	static action fail(string message) {
-		throw Exception(message, "FailedAssertException");
+		try {
+			context.throwStdException();
+		} catch (Exception e) {
+			sequence<StackTraceElement> trace := e.getStackTrace();
+			log "Failed assertion: " + message + " at " + trace[2].getTypeName()
+				+ "." + trace[2].getActionName() + "() " + trace[2].getFilename()
+				+ ":" + trace[2].getLineNumber().toString() at ERROR;
+			throw com.apama.exceptions.Exception(message, "FailedAssertException");
+		}
 	}
 
 	/**
