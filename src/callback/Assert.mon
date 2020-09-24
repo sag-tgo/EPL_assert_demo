@@ -4,8 +4,6 @@ package com.apamax.test.callback;
 
 using com.apama.exceptions.Exception;
 
-using com.apama.correlator.Component;
-
 /**
  * An assertion class for testing epl applications
  */
@@ -14,20 +12,10 @@ event Assert {
 	action<string> onFailedAssertion;
 	boolean enabled;
 
-	static action create(action<string> failedAssertCallback) returns Assert {
+	static action create(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
+		result.enabled := enabled;
 		result.onFailedAssertion := failedAssertCallback;
-
-		string enabled := Component.getConfigProperties().getOr("asserts", "false");
-		result.enabled := false;
-		try {
-			result.enabled := boolean.parse(enabled);
-		} catch (Exception e) {
-			// Log at WARN because if it doesn't exist in the config we use 'false', which will not throw.
-			log "Invalid configuration for 'assert'. Got " + enabled +
-				" but must be able to parse to boolean. Exception: " + e.getMessage() at WARN;
-		}
-		log "Asserts enabled: " + result.enabled.toString() at INFO;
 		return result;
 	}
 
@@ -48,7 +36,7 @@ event Assert {
 	 * @param value the value that is being asserted is true.
 	 * @param message description of what's being asserted.
 	 */
-	action #true(boolean value, string message) {
+	action isTrue(boolean value, string message) {
 		if not enabled {
 			return;
 		}
@@ -63,7 +51,7 @@ event Assert {
 	 * @param value the value that is being asserted is false.
 	 * @param message description of what's being asserted.
 	 */
-	action #false(boolean value, string message) {
+	action isFalse(boolean value, string message) {
 		if not enabled {
 			return;
 		}
@@ -75,17 +63,21 @@ event Assert {
 
 	/**
 	 * Assert that two values are equal.
-	 * @param value1 the first value.
-	 * @param value2 the second value.
+	 * Note: This is not a deep equality check (which is more computationally expensive)
+	 * @param actual the actual value.
+	 * @param expected the expected value.
 	 * @param message description of what's being asserted.
 	 */
-	action equal(any value1, any value2, string message) {
+	action equals(any actual, any expected, string message) {
 		if not enabled {
 			return;
 		}
 
-		if value1 != value2 {
+		if actual != expected {
 			fail(message);
 		}
 	}
+
+	// action isGreaterThan, isLessThan
+	// action deepEquals
 }

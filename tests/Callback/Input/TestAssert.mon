@@ -2,15 +2,24 @@ using com.apama.exceptions.Exception;
 using com.apamax.test.callback.Assert;
 using com.apamax.test.AssertHelper;
 
+using com.apama.correlator.Component;
+
 monitor TestAssert {
 
-	action logAtError(string message) {
-		log message at ERROR;
-	}
-
 	action onload() {
-		Assert asserter := Assert.create(AssertHelper.#die);
-		asserter.#true(false, "the sky is blue");
-		asserter.equal(2 + 2, 5, "Two plus two = four");
+		string enabled := Component.getConfigProperties().getOr("asserts", "false");
+		boolean isEnabled := false;
+		try {
+			isEnabled := boolean.parse(enabled);
+		} catch (Exception e) {
+			// Log at WARN because if it doesn't exist in the config we use 'false', which will not throw.
+			log "Invalid configuration for 'assert'. Got '" + enabled +
+				"' but must be able to parse to boolean. Exception: " + e.getMessage() at WARN;
+		}
+		log "Asserts enabled: " + isEnabled.toString() at INFO;
+		Assert asserter := Assert.create(isEnabled, AssertHelper.logAtError);
+		asserter.isTrue(false, "the sky is blue");
+		asserter.isFalse(true, "pigs can fly");
+		asserter.equals(2 + 2, 5, "Two plus two = four");
 	}
 }

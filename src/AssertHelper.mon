@@ -50,9 +50,11 @@ event AssertHelper {
 	}
 
 	/**
-	 * Throws a FailedAssertException with the specified message.
+	 * Logs <message> at ERROR then throws a FailedAssertException.
 	 */
-	static action #throw(string message) {
+	static action throwWithError(string message) {
+		// In case the exception is caught by user code and silently ignored.
+		logAtError(message);
 		// If this is uncaught it will be logged at error by default.
 		throw Exception(message, "FailedAssertException");
 	}
@@ -60,7 +62,7 @@ event AssertHelper {
 	/**
 	 * Logs <message> at ERROR then terminates the monitor with the die statement.
 	 */
-	static action #die(string message) {
+	static action dieWithError(string message) {
 		logAtError(message);
 		die;
 	}
