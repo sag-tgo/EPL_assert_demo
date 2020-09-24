@@ -16,38 +16,11 @@ using com.apama.exceptions.Exception;
 event AssertHelper {
 
 	/**
-	 * Log <message> at <logLevel>
-	 * @param message - the message to log.
-	 * @param logLevel - integer value of the level to log at (0-7, 0=OFF, 7=TRACE).
-	 */
-	static action logMessage(string message, integer logLevel) {
-		if logLevel = 0 {
-			log message at OFF;
-		} else if logLevel = 1 {
-			log message at CRIT;
-		} else if logLevel = 2 {
-			log message at FATAL;
-		} else if logLevel = 3 {
-			log message at ERROR;
-		} else if logLevel = 4 {
-			log message at WARN;
-		} else if logLevel = 5 {
-			log message at INFO;
-		} else if logLevel = 6 {
-			log message at DEBUG;
-		} else if logLevel = 7 {
-			log message at TRACE;
-		} else {
-			throw Exception("Unsupported log level: " + logLevel.toString(), "IllegalArgumentException");
-		}
-	}
-
-	/**
 	 * Logs <message> at ERROR.
 	 * @param message - the message to log.
 	 */
 	static action logAtError(string message) {
-		logMessage(message, 3);
+		log message at ERROR;
 	}
 
 	/**
