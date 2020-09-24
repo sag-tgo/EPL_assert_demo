@@ -9,8 +9,7 @@ monitor TestAssert {
 	}
 
 	action onload() {
-		Assert asserter := new Assert;
-		asserter.onFailedAssertion := AssertHelper.#die;
+		Assert asserter := Assert.create(AssertHelper.#die);
 		asserter.#true(false, "the sky is blue");
 		asserter.equal(2 + 2, 5, "Two plus two = four");
 	}

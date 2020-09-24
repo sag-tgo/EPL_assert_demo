@@ -3,10 +3,13 @@ from pysys.basetest import BaseTest
 from apama.correlator import CorrelatorHelper
 import os
 
+
 class PySysTest(BaseTest):
 	def execute(self):
 		corr = CorrelatorHelper(self, name='correlator')
-		corr.start(logfile='correlator.log')
+		corr.start(logfile='correlator.log', arguments=['-Dasserts=true'])
+		corr.injectEPL('Apama/monitors/ManagementImpl.mon')
+		corr.injectEPL('monitors/Management.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
 		tests = os.listdir(self.input)

@@ -4,18 +4,42 @@ package com.apamax.test.callback;
 
 using com.apama.exceptions.Exception;
 
+using com.apama.correlator.Component;
+
 /**
  * An assertion class for testing epl applications
  */
 event Assert {
 
 	action<string> onFailedAssertion;
+	boolean enabled;
+
+	static action create(action<string> failedAssertCallback) returns Assert {
+		Assert result := new Assert;
+		result.onFailedAssertion := failedAssertCallback;
+
+		string enabled := Component.getConfigProperties().getOr("asserts", "false");
+		result.enabled := false;
+		try {
+			result.enabled := boolean.parse(enabled);
+		} catch (Exception e) {
+			// Log at WARN because if it doesn't exist in the config we use 'false', which will not throw.
+			log "Invalid configuration for 'assert'. Got " + enabled +
+				" but must be able to parse to boolean. Exception: " + e.getMessage() at WARN;
+		}
+		log "Asserts enabled: " + result.enabled.toString() at INFO;
+		return result;
+	}
 
 	/**
 	 * Fail an assertion.
 	 * @param message the reason for the assertion failure.
 	 */
 	action fail(string message) {
+		if not enabled {
+			return;
+		}
+
 		onFailedAssertion(message);
 	}
 
@@ -25,6 +49,10 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action #true(boolean value, string message) {
+		if not enabled {
+			return;
+		}
+
 		if not value {
 			fail(message);
 		}
@@ -36,6 +64,10 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action #false(boolean value, string message) {
+		if not enabled {
+			return;
+		}
+
 		if value {
 			fail(message);
 		}
@@ -48,6 +80,10 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action equal(any value1, any value2, string message) {
+		if not enabled {
+			return;
+		}
+
 		if value1 != value2 {
 			fail(message);
 		}
