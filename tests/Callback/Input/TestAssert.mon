@@ -1,4 +1,3 @@
-using com.apama.exceptions.Exception;
 using com.apamax.test.callback.Assert;
 using com.apamax.test.AssertHelper;
 
