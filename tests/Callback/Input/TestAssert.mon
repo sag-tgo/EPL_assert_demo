@@ -7,17 +7,10 @@ using com.apama.correlator.Component;
 monitor TestAssert {
 
 	action onload() {
-		string enabled := Component.getConfigProperties().getOr("asserts", "false");
-		boolean isEnabled := false;
-		try {
-			isEnabled := boolean.parse(enabled);
-		} catch (Exception e) {
-			// Log at WARN because if it doesn't exist in the config we use 'false', which will not throw.
-			log "Invalid configuration for 'assert'. Got '" + enabled +
-				"' but must be able to parse to boolean. Exception: " + e.getMessage() at WARN;
-		}
-		log "Asserts enabled: " + isEnabled.toString() at INFO;
-		Assert asserter := Assert.create(isEnabled, AssertHelper.logAtError);
+		string configAsserts := Component.getConfigProperties().getOr("asserts", "");
+		boolean assertsEnabled := configAsserts.toLower() = "true";  // or true.toString() [+ .toLower()?] to avoid the magic string at the expense of readability.
+		log "Asserts enabled? " + assertsEnabled.toString() at INFO;
+		Assert asserter := Assert.create(assertsEnabled, AssertHelper.logAtError);
 		asserter.isTrue(false, "the sky is blue");
 		asserter.isFalse(true, "pigs can fly");
 		asserter.equals(2 + 2, 5, "Two plus two = four");
