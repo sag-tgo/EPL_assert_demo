@@ -1,12 +1,15 @@
-using com.apamax.test.callback.Assert; // Probably just com.apamax.test.Assert
-using com.apamax.test.AssertHelper;
+using com.apamax.test.callback.Assert;  // Probably just com.apamax.test.Assert
 
 monitor TestAssert {
 
 	Assert asserter;  // Event instance accessible by everything in this monitor.
 
+	action logAtError(string message) {
+		log message at ERROR;
+	}
+
 	action onload() {
-		asserter := Assert.create(true, AssertHelper.logAtError);
+		asserter := Assert.create(true, logAtError);
 		asserter.isTrue(false, "the sky is blue");
 		asserter.isFalse(true, "pigs can fly");
 		asserter.equals(2 + 2, 5, "Two plus two = four");
