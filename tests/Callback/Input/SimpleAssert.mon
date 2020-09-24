@@ -6,7 +6,7 @@ monitor TestAssert {
 	Assert asserter;  // Event instance accessible by everything in this monitor.
 
 	action onload() {
-		asserter := Assert.create(true, AssertHelper.throwWithError);
+		asserter := Assert.create(true, AssertHelper.logAtError);
 		asserter.isTrue(false, "the sky is blue");
 		asserter.isFalse(true, "pigs can fly");
 		asserter.equals(2 + 2, 5, "Two plus two = four");

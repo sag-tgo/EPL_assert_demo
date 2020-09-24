@@ -44,6 +44,7 @@ event AssertHelper {
 
 	/**
 	 * Logs <message> at ERROR.
+	 * @param message - the message to log.
 	 */
 	static action logAtError(string message) {
 		logMessage(message, 3);
@@ -51,16 +52,18 @@ event AssertHelper {
 
 	/**
 	 * Logs <message> at ERROR then throws a FailedAssertException.
+	 * @param message - the message to log and to go with the exception.
 	 */
 	static action throwWithError(string message) {
 		// In case the exception is caught by user code and silently ignored.
 		logAtError(message);
-		// If this is uncaught it will be logged at error by default.
+		// If this is uncaught it will be logged at error by default and the monitor will terminate.
 		throw Exception(message, "FailedAssertException");
 	}
 
 	/**
 	 * Logs <message> at ERROR then terminates the monitor with the die statement.
+	 * @param message - the message to log.
 	 */
 	static action dieWithError(string message) {
 		logAtError(message);

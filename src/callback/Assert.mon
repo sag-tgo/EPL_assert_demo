@@ -1,17 +1,19 @@
 
-
 package com.apamax.test.callback;
 
-using com.apama.exceptions.Exception;
-
 /**
- * An assertion class for testing epl applications
+ * An assertion event to help with testing EPL applications.
  */
 event Assert {
 
 	action<string> onFailedAssertion;
 	boolean enabled;
 
+	/**
+	 * Create an instance of an Assert event.
+	 * @param enabled - true = enabled, false = disabled.
+	 * @param failedAssertCallback - The action to invoke if an assertion fails.
+	 */
 	static action create(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
 		result.enabled := enabled;
