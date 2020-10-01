@@ -1,0 +1,13 @@
+using com.apamax.test.Assert;
+using com.apamax.test.AssertHelper;
+
+monitor SimpleAssert2 {
+
+	Assert asserter := Assert.create(true, AssertHelper.dieWithError);
+
+	action onload() {
+		asserter.isTrue(false, "the sky is blue");
+		asserter.isFalse(true, "pigs can fly");
+		asserter.equals(2 + 2, 5, "Two plus two = four");
+	}
+}
