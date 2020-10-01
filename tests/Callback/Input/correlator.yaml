@@ -1,0 +1,5 @@
+eplLogging:
+  .root:
+    level: INFO
+  com.acme:
+    level: DEBUG

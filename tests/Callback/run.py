@@ -8,8 +8,9 @@ class PySysTest(BaseTest):
 	def execute(self):
 		corr = CorrelatorHelper(self, name='correlator')
 		corr.start(logfile='correlator.log', arguments=[
-			'--applicationLogLevel', 'DEBUG',
-			'-Dasserts=true'])
+			'-Dasserts=true',
+			'--config', self.input + '/correlator.yaml'
+		])
 		corr.injectEPL('ManagementImpl.mon')
 		corr.injectEPL('Management.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
