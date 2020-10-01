@@ -10,8 +10,10 @@ class PySysTest(BaseTest):
 		corr.start(logfile='correlator.log', arguments=[
 			'--applicationLogLevel', 'DEBUG',
 			'-Dasserts=true'])
-		corr.injectEPL('../../../src/AssertHelper.mon')
+		corr.injectEPL('ManagementImpl.mon')
+		corr.injectEPL('Management.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
+		corr.injectEPL('../../../src/AssertHelper.mon')
 		tests = os.listdir(self.input)
 		tests.sort()
 		for test in tests:
