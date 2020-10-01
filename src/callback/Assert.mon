@@ -13,6 +13,11 @@ package com.apamax.test;
 
 /**
  * An assertion event to help with testing EPL applications.
+ * Instances of this event that are created in any way other than using the create action
+ * will be lazily initialized to log failed assertions at ERROR.
+ * To change the default behavior from that provided by lazy initialisation, or to
+ * explicitly declare the behavior, use the create action to create Assert event instances.
+ *
  * @version 0.1
  */
 event Assert {
@@ -61,6 +66,7 @@ event Assert {
 	}
 
 	/**
+	 * @private
 	 * Logs <message> at ERROR.
 	 * @param message - the message to log.
 	 */

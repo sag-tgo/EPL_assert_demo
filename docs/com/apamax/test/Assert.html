@@ -1,0 +1,211 @@
+<HTML><!-- saved from url=(0014)about:internet -->
+
+
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>Assert</TITLE>
+<META NAME="keywords" CONTENT="Assert&nbsp;event">
+<LINK REL="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
+<SCRIPT type="text/javascript">function windowTitle()
+          {
+          parent.document.title="Assert";
+          }
+          </SCRIPT>
+<NOSCRIPT></NOSCRIPT>
+</HEAD>
+<BODY BGCOLOR="white" onload="windowTitle();">
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Assert.html"><B>FRAMES</B></A>  &nbsp;
+
+            &nbsp;<A target="_top" HREF="Assert.html"><B>NO FRAMES</B></A>  &nbsp;
+            &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+</FONT></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+<TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
+              </TD><TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1"><A HREF="../../..//com/apamax/test/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;
+              </TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT>&nbsp;
+                </A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1" WIDTH="100%" ALIGN="RIGHT"></TD>
+</TR>
+</TABLE>
+</TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;<A HREF="#member_summary">MEMBER</A>&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;<A HREF="#member_detail">MEMBER</A>&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
+</TR>
+</TABLE>
+<HR>
+<H2>
+<FONT SIZE="-1">com.apamax.test</FONT>
+<BR>Event Assert</H2>
+<HR>An assertion event to help with testing EPL applications. Instances of this event that are created in any way other than using the create action will be lazily initialized to log failed assertions at ERROR. To change the default behavior from that provided by lazy initialisation, or to explicitly declare the behavior, use the create action to create Assert event instances.<DL>
+<DT>
+<B>Version:</B>
+</DT>
+<DD>0.1</DD>
+</DL>
+<HR>
+<A NAME="member_summary"></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2"><B>Member summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;action&lt;string&gt;</CODE></FONT></TD><TD><CODE><B><A HREF="Assert.html#onFailedAssertion">onFailedAssertion</A></B></CODE>
+<br>
+<br>An action which takes one string paremeter which is invoked if an assertion fails.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE><B><A HREF="Assert.html#enabled">enabled</A></B></CODE>
+<br>
+<br>Enabled/disabled flag. This allows an optimisation when asserts are disabled and gives the option of turning asserts on/off at runtime.</TD>
+</TR>
+</TABLE>&nbsp;<A NAME="action_summary"></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2"><B>Action summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A></CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#create()">create</A></B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</CODE>
+<br>
+<br>Create an instance of an Assert event.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#equals()">equals</A></B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;message)</CODE>
+<br>
+<br>Assert that two values are equal. Note: This is not a deep equality check (which is more computationally expensive)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#fail()">fail</A></B>(string&nbsp;message)</CODE>
+<br>
+<br>Fail an assertion.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isFalse()">isFalse</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<br>
+<br>Assert that a boolean value is false.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isTrue()">isTrue</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<br>
+<br>Assert that a boolean value is true.</TD>
+</TR>
+</TABLE>&nbsp;<A NAME="member_detail"></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2"><B>Member detail</B></FONT></TH>
+</TR>
+</TABLE>
+<A NAME="enabled"></A>
+<H3>enabled</H3>
+<PRE>boolean&nbsp;<B>enabled</B>
+</PRE>Enabled/disabled flag. This allows an optimisation when asserts are disabled and gives the option of turning asserts on/off at runtime.<HR>
+<A NAME="onFailedAssertion"></A>
+<H3>onFailedAssertion</H3>
+<PRE>action&lt;string&gt;&nbsp;<B>onFailedAssertion</B>
+</PRE>An action which takes one string paremeter which is invoked if an assertion fails.<HR>
+<A NAME="action_detail"></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2"><B>Action detail</B></FONT></TH>
+</TR>
+</TABLE>
+<A NAME="create()"></A>
+<H3>create</H3>
+<PRE>
+<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A>&nbsp;static <B>create</B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</PRE>Create an instance of an Assert event.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>enabled</tt>&nbsp;-&nbsp;- true = enabled, false = disabled.</DD>
+<DD>
+<tt>failedAssertCallback</tt>&nbsp;-&nbsp;- The action to invoke if an assertion fails.</DD>
+</DL>
+<HR>
+<A NAME="equals()"></A>
+<H3>equals</H3>
+<PRE>void&nbsp;<B>equals</B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;message)</PRE>Assert that two values are equal. Note: This is not a deep equality check (which is more computationally expensive)<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>actual</tt>&nbsp;-&nbsp;the actual value.</DD>
+<DD>
+<tt>expected</tt>&nbsp;-&nbsp;the expected value.</DD>
+<DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+</DL>
+<HR>
+<A NAME="fail()"></A>
+<H3>fail</H3>
+<PRE>void&nbsp;<B>fail</B>(string&nbsp;message)</PRE>Fail an assertion.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>message</tt>&nbsp;-&nbsp;the reason for the assertion failure.</DD>
+</DL>
+<HR>
+<A NAME="isFalse()"></A>
+<H3>isFalse</H3>
+<PRE>void&nbsp;<B>isFalse</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is false.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is false.</DD>
+<DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+</DL>
+<HR>
+<A NAME="isTrue()"></A>
+<H3>isTrue</H3>
+<PRE>void&nbsp;<B>isTrue</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is true.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is true.</DD>
+<DD>
+<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+</DL>
+<HR>
+<HR>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/Assert.html"><B>FRAMES</B></A>  &nbsp;
+
+            &nbsp;<A target="_top" HREF="Assert.html"><B>NO FRAMES</B></A>  &nbsp;
+            &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
+<NOSCRIPT>
+<A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+</FONT></TD>
+</TR>
+<TR>
+<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+<TR ALIGN="center" VALIGN="top">
+<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
+              </TD><TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1"><A HREF="../../..//com/apamax/test/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;
+              </TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT>&nbsp;
+                </A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1" WIDTH="100%" ALIGN="RIGHT"></TD>
+</TR>
+</TABLE>
+</TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;<A HREF="#member_summary">MEMBER</A>&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;<A HREF="#member_detail">MEMBER</A>&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
+</TR>
+</TABLE>
+<HR>
+</BODY>
+</HTML>
