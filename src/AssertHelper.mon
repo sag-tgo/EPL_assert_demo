@@ -15,6 +15,10 @@ using com.apama.correlator.Component;
 using com.apama.correlator.Logging;
 using com.apama.exceptions.Exception;
 
+/**
+ * An event providing static actions to help using the Assert event.
+ * @version 0.1
+ */
 event AssertHelper {
 
 	/**
@@ -45,13 +49,24 @@ event AssertHelper {
 		die;
 	}
 
+	/**
+	 * Checks if the given configuration key is true.
+	 * See Apama documentation for Component.getConfigProperties() and
+	 * for how to configure the correlator via YAML or command line arguments.
+	 * If the given key does not exist, this action will return false.
+	 * This action will return true if the value associated with the configuration key
+	 * is "true" (case insensitive).
+	 * @param key the config key to look up.
+	 */
 	static action isConfigEnabled(string key) returns boolean {
-		string configAsserts := Component.getConfigProperties().getOr(key, "");
-		return configAsserts.toLower() = true.toString().toLower();
+		string configValue := Component.getConfigProperties().getOr(key, "");
+		return configValue.toLower() = true.toString().toLower();
 	}
 
 	/**
-	 * Returns true if the monitor this is called from is configured to log at DEBUG (or TRACE).
+	 * Check if this monitor will log at DEBUG or not.
+	 * @returns true if the monitor this is called from is configured to log at
+	 * DEBUG (or TRACE), false otherwise.
 	 */
 	static action isLoggingAtDebug() returns boolean {
 		boolean result := false;
