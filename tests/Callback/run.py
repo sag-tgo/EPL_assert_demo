@@ -7,9 +7,9 @@ import os
 class PySysTest(BaseTest):
 	def execute(self):
 		corr = CorrelatorHelper(self, name='correlator')
-		corr.start(logfile='correlator.log', arguments=['-Dasserts=true'])
-		corr.injectEPL('Apama/monitors/ManagementImpl.mon')
-		corr.injectEPL('monitors/Management.mon')
+		corr.start(logfile='correlator.log', arguments=[
+			'--applicationLogLevel', 'DEBUG',
+			'-Dasserts=true'])
 		corr.injectEPL('../../../src/AssertHelper.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
 		tests = os.listdir(self.input)

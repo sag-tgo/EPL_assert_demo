@@ -1,8 +1,10 @@
 using com.apamax.test.Assert;
+using com.apamax.test.AssertHelper;
 
-monitor SimpleAssert {
+monitor ConfigAssert {
 
-	Assert asserter;
+	Assert asserter := Assert.create(AssertHelper.isConfigEnabled("asserts"),
+										AssertHelper.logAtError);
 
 	action onload() {
 		asserter.isTrue(false, "the sky is blue");

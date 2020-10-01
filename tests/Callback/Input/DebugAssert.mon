@@ -1,0 +1,17 @@
+package com.acme;
+
+using com.apamax.test.Assert;
+using com.apamax.test.AssertHelper;
+
+monitor DebugAssert {
+
+	Assert asserter := Assert.create(AssertHelper.isLoggingAtDebug(),
+										AssertHelper.logAtError);
+
+	action onload() {
+		log "DebugAssert.onload()" at DEBUG;
+		asserter.isTrue(false, "the sky is blue");
+		asserter.isFalse(true, "pigs can fly");
+		asserter.equals(2 + 2, 5, "Two plus two = four");
+	}
+}

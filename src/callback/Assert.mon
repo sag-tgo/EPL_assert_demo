@@ -1,13 +1,41 @@
 
-package com.apamax.test.callback;
+package com.apamax.test;
 
 /**
  * An assertion event to help with testing EPL applications.
+ * @version 0.1
  */
 event Assert {
 
+	/**
+	 * @private
+	 * Used for lazy initialisation.
+	 */
+	boolean initialized;
+
+	/**
+	 * An action which takes one string paremeter which is invoked if an assertion fails.
+	 */
 	action<string> onFailedAssertion;
+
+	/**
+	 * Enabled/disabled flag.
+	 * This allows an optimisation when asserts are disabled and
+	 * gives the option of turning asserts on/off at runtime.
+	 */
 	boolean enabled;
+
+	/**
+	 * @private
+	 * Lazy initialisation action.
+	 */
+	action init() {
+		if not initialized {
+			initialized := true;
+			enabled := true;
+			onFailedAssertion := logAtError;
+		}
+	}
 
 	/**
 	 * Create an instance of an Assert event.
@@ -16,9 +44,18 @@ event Assert {
 	 */
 	static action create(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
+		result.initialized := true;
 		result.enabled := enabled;
 		result.onFailedAssertion := failedAssertCallback;
 		return result;
+	}
+
+	/**
+	 * Logs <message> at ERROR.
+	 * @param message - the message to log.
+	 */
+	static action logAtError(string message) {
+		log message at ERROR;
 	}
 
 	/**
@@ -26,6 +63,7 @@ event Assert {
 	 * @param message the reason for the assertion failure.
 	 */
 	action fail(string message) {
+		init();
 		if not enabled {
 			return;
 		}
@@ -39,6 +77,7 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action isTrue(boolean value, string message) {
+		init();
 		if not enabled {
 			return;
 		}
@@ -54,6 +93,7 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action isFalse(boolean value, string message) {
+		init();
 		if not enabled {
 			return;
 		}
@@ -71,6 +111,7 @@ event Assert {
 	 * @param message description of what's being asserted.
 	 */
 	action equals(any actual, any expected, string message) {
+		init();
 		if not enabled {
 			return;
 		}

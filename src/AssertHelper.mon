@@ -11,6 +11,8 @@
 
 package com.apamax.test;
 
+using com.apama.correlator.Component;
+using com.apama.correlator.Logging;
 using com.apama.exceptions.Exception;
 
 event AssertHelper {
@@ -42,4 +44,26 @@ event AssertHelper {
 		logAtError(message);
 		die;
 	}
+
+	static action isConfigEnabled(string key) returns boolean {
+		string configAsserts := Component.getConfigProperties().getOr(key, "");
+		return configAsserts.toLower() = true.toString().toLower();
+	}
+
+	/**
+	 * Returns true if the monitor this is called from is configured to log at DEBUG (or TRACE).
+	 */
+	static action isLoggingAtDebug() returns boolean {
+		boolean result := false;
+		try {
+			context.throwStdException();
+		} catch (com.apama.exceptions.Exception e) {
+			sequence<com.apama.exceptions.StackTraceElement> trace := e.getStackTrace();
+			string caller := trace[1].getTypeName();
+			string level := Logging.getApplicationLogLevel(caller);
+			result := level = "DEBUG" or level = "TRACE";
+		}
+		return result;
+	}
+
 }
