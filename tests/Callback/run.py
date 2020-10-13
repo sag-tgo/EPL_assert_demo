@@ -11,8 +11,8 @@ class PySysTest(BaseTest):
 			'-Dasserts=true',
 			'--config', self.input + '/correlator.yaml'
 		])
-		corr.injectEPL('ManagementImpl.mon')
-		corr.injectEPL('Management.mon')
+		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/ManagementImpl.mon')
+		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/Management.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
 		tests = os.listdir(self.input)
