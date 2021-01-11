@@ -15,12 +15,12 @@ class PySysTest(BaseTest):
 		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/Management.mon')
 		corr.injectEPL('../../../src/callback/Assert.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
-		tests = os.listdir(self.input)
-		tests.sort()
-		for test in tests:
-			if test.endswith('.mon'):
-				corr.injectEPL(test)
-				corr.flush()
+
+		corr.injectEPL('EventDefs.mon')
+		
+		for test in ['ConfigAssert.mon', 'DebugAssert.mon', 'SimpleAssert.mon', 'SimpleAssert2.mon']:
+			corr.injectEPL(test)
+			corr.flush()
 		corr.shutdown()
 
 	def validate(self):

@@ -1,5 +1,6 @@
 using com.apamax.test.Assert;
 using com.apamax.test.AssertHelper;
+using com.softwareag.apama.demo.MyCalculator;
 
 monitor ConfigAssert {
 
@@ -7,8 +8,27 @@ monitor ConfigAssert {
 										AssertHelper.logAtError);
 
 	action onload() {
-		asserter.isTrue(false, "the sky is blue");
-		asserter.isFalse(true, "pigs can fly");
-		asserter.equals(2 + 2, 5, "Two plus two = four");
+		log "test start" at INFO;
+
+		testMyCalculatorAddToZero();
+		testMyCalculatorAddToOne();
+
+		log "test end" at INFO;
+	}
+
+	action testMyCalculatorAddToZero() {
+		integer i := 0;
+		while i < 10 {
+			asserter.equals(MyCalculator.add(0, i), i, "0 + i != i for i=" + i.toString());
+			i := i + 1;
+		}
+	}
+
+	action testMyCalculatorAddToOne() {
+		integer i := 0;
+		while i < 10 {
+			asserter.equals(MyCalculator.add(1, i), i, "1 + i != i + 1 for i=" + i.toString());
+			i := i + 1;
+		}
 	}
 }

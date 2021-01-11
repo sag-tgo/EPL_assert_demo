@@ -9,9 +9,11 @@ monitor DebugAssert {
 										AssertHelper.logAtError);
 
 	action onload() {
-		log "DebugAssert.onload()" at DEBUG;
-		asserter.isTrue(false, "the sky is blue");
-		asserter.isFalse(true, "pigs can fly");
-		asserter.equals(2 + 2, 5, "Two plus two = four");
+		log "Logging at DEBUG" at DEBUG;
+		log "test start" at INFO;
+
+		asserter.fail("Failed assertion!");
+
+		log "test end" at INFO;
 	}
 }
