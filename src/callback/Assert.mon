@@ -24,6 +24,12 @@ event Assert {
 
 	/**
 	 * @private
+	 * The default assertion failure message prefix.
+	 */
+	constant string DEFAULT_MESSAGE_PREFIX := "Assertion failed: ";
+
+	/**
+	 * @private
 	 * Used for lazy initialisation.
 	 */
 	boolean initialized;
@@ -41,14 +47,20 @@ event Assert {
 	boolean enabled;
 
 	/**
+	 * Prefix on assertion failure messages.
+	 */
+	string messagePrefix;
+
+	/**
 	 * @private
 	 * Lazy initialisation action.
 	 */
 	action init() {
 		if not initialized {
-			initialized := true;
-			enabled := true;
+			messagePrefix := DEFAULT_MESSAGE_PREFIX;
 			onFailedAssertion := logAtError;
+			enabled := true;
+			initialized := true;
 		}
 	}
 
@@ -59,9 +71,10 @@ event Assert {
 	 */
 	static action createOpt(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
-		result.initialized := true;
-		result.enabled := enabled;
+		result.messagePrefix := DEFAULT_MESSAGE_PREFIX;
 		result.onFailedAssertion := failedAssertCallback;
+		result.enabled := enabled;
+		result.initialized := true;
 		return result;
 	}
 
@@ -92,39 +105,7 @@ event Assert {
 			return;
 		}
 
-		onFailedAssertion("Assertion failed: " + message);
-	}
-
-	/**
-	 * Assert that a boolean value is true.
-	 * @param value the value that is being asserted is true.
-	 * @param message description of what's being asserted.
-	 */
-	action isTrue(boolean value, string message) {
-		init();
-		if not enabled {
-			return;
-		}
-
-		if not value {
-			fail(message);
-		}
-	}
-
-	/**
-	 * Assert that a boolean value is false.
-	 * @param value the value that is being asserted is false.
-	 * @param message description of what's being asserted.
-	 */
-	action isFalse(boolean value, string message) {
-		init();
-		if not enabled {
-			return;
-		}
-
-		if value {
-			fail(message);
-		}
+		onFailedAssertion(messagePrefix + message);
 	}
 
 	/**
@@ -133,16 +114,17 @@ event Assert {
 	 * are deep equality operators.
 	 * @param actual the actual value.
 	 * @param expected the expected value.
-	 * @param message description of what's being asserted.
+	 * @param what description of actual.
 	 */
-	action equal(any actual, any expected, string message) {
+	action equal(any actual, any expected, string what) {
 		init();
 		if not enabled {
 			return;
 		}
 
 		if actual != expected {
-			fail(message);
+			fail("Expected '" + what + "' to equal " + expected.valueToString() 
+				+ ", got " + actual.valueToString());
 		}
 	}
 
@@ -152,33 +134,52 @@ event Assert {
 	 * are deep equality operators.
 	 * @param actual the actual value.
 	 * @param unexpected the unexpected value.
-	 * @param message description of what's being asserted.
+	 * @param what description of actual.
 	 */
-	action notEqual(any actual, any unexpected, string message) {
+	action notEqual(any actual, any unexpected, string what) {
 		init();
 		if not enabled {
 			return;
 		}
 
 		if actual = unexpected {
-			fail(message);
+			fail("Expected '" + what + "' to not equal, got " + actual.valueToString());
 		}
+	}
+
+	/**
+	 * Assert that a boolean value is true.
+	 * @param value the value that is being asserted is true.
+	 * @param what description of value.
+	 */
+	action isTrue(boolean value, string what) {
+		equal(value, true, what);
+	}
+
+	/**
+	 * Assert that a boolean value is false.
+	 * @param value the value that is being asserted is false.
+	 * @param what description of value.
+	 */
+	action isFalse(boolean value, string what) {
+		equal(value, false, what);
 	}
 
 	/**
 	 * Assert that 'actual' is greater than 'min'.
 	 * @param actual the actual value
 	 * @param min the value that 'actual' should be greater than.
-	 * @param message description of what's being asserted.
+	 * @param what description of actual.
 	 */
-	action isGreaterThan(any actual, any min, string message) {
+	action isGreaterThan(any actual, any min, string what) {
 		init();
 		if not enabled {
 			return;
 		}
 
 		if not actual > min {
-			fail(message);
+			fail("Expected '" + what + "' to be greater than " + min.valueToString()
+				 + ", got " + actual.valueToString());
 		}
 	}
 
@@ -186,34 +187,38 @@ event Assert {
 	 * Assert that 'actual' is less than 'max'.
 	 * @param actual the actual value
 	 * @param max the value that 'actual' should be less than.
-	 * @param message description of what's being asserted.
+	 * @param what description of actual.
 	 */
-	action isLessThan(any actual, any max, string message) {
+	action isLessThan(any actual, any max, string what) {
 		init();
 		if not enabled {
 			return;
 		}
 
 		if not actual < max {
-			fail(message);
+			fail("Expected '" + what + "' to be less than " + max.valueToString()
+				 + ", got " + actual.valueToString());
 		}
 	}
 
 	/**
 	 * Assert that a value is within a range (inclusive).
-	 * @param value the value that should be within the range.
+	 * @param actual the value that should be within the range.
 	 * @param min the minimum value.
 	 * @param max the maximum value.
-	 * @param message description of what's being asserted.
+	 * @param what description of actual.
 	 */
-	action isInRange(any value, any min, any max, string message) {
+	action isInRange(any actual, any min, any max, string what) {
 		init();
 		if not enabled {
 			return;
 		}
 
-		if not (value >= lower and value <= upper) {
-			fail(message);
+		if not (actual >= min and actual <= max) {
+			fail("Expected '" + what 
+				+ "' to be >=" + min.valueToString() 
+				+ " and <=" + max.valueToString() 
+				+ ", got " + actual.valueToString());
 		}
 	}
 }
