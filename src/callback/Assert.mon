@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 Software AG, Darmstadt, Germany and/or its licensors
+/* Copyright (c) 2020-2021 Software AG, Darmstadt, Germany and/or its licensors
 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
  * file except in compliance with the License. You may obtain a copy of the License at
@@ -13,10 +13,12 @@ package com.apamax.test;
 
 /**
  * An assertion event to help with testing EPL applications.
- * Instances of this event that are created in any way other than using the create action
- * will be lazily initialized to log failed assertions at ERROR.
- * To change the default behavior from that provided by lazy initialisation, or to
- * explicitly declare the behavior, use the create action to create Assert event instances.
+ * Monitor-global instances of this event that are auto-initialized by the 
+ * correlator will default to log failed assertions at ERROR. If you wish to
+ * be explicit or change the default behavior, initialise the instance with one
+ * of the create* actions.
+ * Instances of events that are local variables need to be explicitly
+ * initialized.
  *
  * @version 0.1
  */
