@@ -18,7 +18,9 @@ From an Apama command prompt in the tests directory:
 
 `> pysys run <test name>` to run one test by name - e.g. `> pysys run demo_1`
 
-## Excerpt from test/Event correlator output
+You can then look at the correlator.log files in each test's Output directory.
+
+## Excerpt from tests/Event correlator output
 ```
 2020-09-21 17:21:35.624 ERROR [20812] - AssertTest [1] FAILED sensors should be the same: assertEquals - assert actual = expected
 actual: device("CZ-3","droid","127.2.0.1")
@@ -34,20 +36,14 @@ expected: Executed engine_deploy <correlator> [test.mon]
 2020-09-21 17:21:35.625 ERROR [20812] - AssertTest [1] FAILED containsTest1: any(device,device("CZ-3","droid","127.0.0.1")) does not contain field id
 ```
 
-## Excerpt from test/Static correlator output
+## Excerpt from tests/Callback correlator output
 ```
-2020-09-21 17:21:40.305 ERROR [10796] - Error on line 26 in action fail in event com.apamax.test.static.Assert: FailedAssertException - the sky is blue - C:\dev\git\epl-assert-demo\tests\Static\Input\../../../src/static/Assert.mon
-2020-09-21 17:21:40.305 ERROR [10796] - TestAssert [1] Stack dump:
-2020-09-21 17:21:40.305 ERROR [10796] - 	com.apamax.test.static.Assert.fail() C:\dev\git\epl-assert-demo\tests\Static\Input\../../../src/static/Assert.mon:26
-2020-09-21 17:21:40.305 ERROR [10796] - 	com.apamax.test.static.Assert.true() C:\dev\git\epl-assert-demo\tests\Static\Input\../../../src/static/Assert.mon:36
-2020-09-21 17:21:40.305 ERROR [10796] - 	TestAssert.onload() C:\dev\git\epl-assert-demo\tests\Static\Input\TestAssert.mon:6
-2020-09-21 17:21:40.305 ERROR [10796] - 	TestAssert.::startupAction::() C:\dev\git\epl-assert-demo\tests\Static\Input\TestAssert.mon:4
-...
-2020-09-21 17:21:40.487 ERROR [10796] - TestExpect [2] the sky is blue
-2020-09-21 17:21:40.487 ERROR [10796] - TestExpect [2] Two plus two = four
-```
-
-## Excerpt from test/Callback correlator output
-```
-2020-09-21 17:21:44.560 ERROR [15800] - TestAssert [1] the sky is blue
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: This should not happen!
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'The sky is blue' to equal true, got false
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'Pigs can fly' to equal false, got true
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'two plus two' to equal 4, got 5
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'sequential events IDs' to not equal, got 42
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be greater than 7, got 3
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be less than 0, got 3
+2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be >=5 and <=10, got 3
 ```
