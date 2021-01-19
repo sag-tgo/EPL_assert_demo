@@ -1,0 +1,18 @@
+using com.apamax.test.Assert;
+
+monitor Demo {
+
+	Assert asserter;
+
+	action onload() {
+		log "test start" at INFO;
+
+		asserter.fail("This should not happen!");
+        asserter.isTrue(false, "The sky is blue");
+        asserter.isFalse(true, "Pigs can't fly");
+        asserter.equal(5, 4, "2+2 should equal 4.");
+        asserter.notEqual(true, true, "true should not equal false.");
+
+		log "test end" at INFO;
+	}
+}

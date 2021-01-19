@@ -18,7 +18,9 @@ class PySysTest(BaseTest):
 
 		corr.injectEPL('EventDefs.mon')
 		
-		for test in ['ConfigAssert.mon', 'DebugAssert.mon', 'SimpleAssert.mon', 'SimpleAssert2.mon']:
+		for test in ['ConfigAssert.mon', 'DebugAssert.mon', 
+					'SimpleAssert.mon', 'SimpleAssert2.mon',
+					'Demo.mon']:
 			corr.injectEPL(test)
 			corr.flush()
 		corr.shutdown()
