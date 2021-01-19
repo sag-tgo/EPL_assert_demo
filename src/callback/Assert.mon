@@ -20,7 +20,7 @@ package com.apamax.test;
  * Instances of events that are local variables need to be explicitly
  * initialized.
  *
- * @version 0.1
+ * @version 0.2
  */
 event Assert {
 
@@ -37,14 +37,15 @@ event Assert {
 	boolean initialized;
 
 	/**
-	 * An action which takes one string paremeter which is invoked if an assertion fails.
+	 * An action which takes one string paremeter which is invoked if an
+	 * assertion fails.
 	 */
 	action<string> onFailedAssertion;
 
 	/**
 	 * Enabled/disabled flag.
-	 * This allows an optimisation when asserts are disabled and
-	 * gives the option of turning asserts on/off at runtime.
+	 * This allows an assert instance to be turned on/off at runtime if 
+	 * desired.
 	 */
 	boolean enabled;
 
@@ -68,8 +69,8 @@ event Assert {
 
 	/**
 	 * Create an instance of an Assert event.
-	 * @param enabled - true = enabled, false = disabled.
-	 * @param failedAssertCallback - The action to invoke if an assertion fails.
+	 * @param enabled true = enabled, false = disabled.
+	 * @param failedAssertCallback The action to invoke if an assertion fails.
 	 */
 	static action createOpt(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
@@ -82,7 +83,7 @@ event Assert {
 
 	/**
 	 * Create an instance of an Assert event. The instance will be enabled.
-	 * @param failedAssertCallback - The action to invoke if an assertion fails.
+	 * @param failedAssertCallback The action to invoke if an assertion fails.
 	 */
 	static action create(action<string> failedAssertCallback) returns Assert {
 		return createOpt(true, failedAssertCallback);
@@ -91,7 +92,7 @@ event Assert {
 	/**
 	 * @private
 	 * Logs <message> at ERROR.
-	 * @param message - the message to log.
+	 * @param message the message to log.
 	 */
 	static action logAtError(string message) {
 		log message at ERROR;
@@ -111,7 +112,7 @@ event Assert {
 	}
 
 	/**
-	 * Assert that two values are equal.
+	 * Assert that actual = expected.
 	 * Note: This is a deep equality check because EPL's = and != operator
 	 * are deep equality operators.
 	 * @param actual the actual value.
@@ -125,13 +126,13 @@ event Assert {
 		}
 
 		if actual != expected {
-			fail("Expected '" + what + "' to equal " + expected.valueToString() 
+			fail("Expected '" + what + "' to equal " + expected.valueToString()
 				+ ", got " + actual.valueToString());
 		}
 	}
 
 	/**
-	 * Assert that two values are not equal.
+	 * Assert that actual != unexpected.
 	 * Note: This is a deep equality check because EPL's = and != operator
 	 * are deep equality operators.
 	 * @param actual the actual value.
@@ -145,12 +146,13 @@ event Assert {
 		}
 
 		if actual = unexpected {
-			fail("Expected '" + what + "' to not equal, got " + actual.valueToString());
+			fail("Expected '" + what + "' to not equal, got "
+				 + actual.valueToString());
 		}
 	}
 
 	/**
-	 * Assert that a boolean value is true.
+	 * Assert that value is true.
 	 * @param value the value that is being asserted is true.
 	 * @param what description of value.
 	 */
@@ -159,7 +161,7 @@ event Assert {
 	}
 
 	/**
-	 * Assert that a boolean value is false.
+	 * Assert that value is false.
 	 * @param value the value that is being asserted is false.
 	 * @param what description of value.
 	 */
@@ -168,7 +170,7 @@ event Assert {
 	}
 
 	/**
-	 * Assert that 'actual' is greater than 'min'.
+	 * Assert that actual > min.
 	 * @param actual the actual value
 	 * @param min the value that 'actual' should be greater than.
 	 * @param what description of actual.
@@ -180,13 +182,13 @@ event Assert {
 		}
 
 		if not actual > min {
-			fail("Expected '" + what + "' to be greater than " + min.valueToString()
-				 + ", got " + actual.valueToString());
+			fail("Expected '" + what + "' to be greater than "
+				 + min.valueToString() + ", got " + actual.valueToString());
 		}
 	}
 
 	/**
-	 * Assert that 'actual' is less than 'max'.
+	 * Assert that actual < max.
 	 * @param actual the actual value
 	 * @param max the value that 'actual' should be less than.
 	 * @param what description of actual.
@@ -198,13 +200,13 @@ event Assert {
 		}
 
 		if not actual < max {
-			fail("Expected '" + what + "' to be less than " + max.valueToString()
-				 + ", got " + actual.valueToString());
+			fail("Expected '" + what + "' to be less than "
+				+ max.valueToString() + ", got " + actual.valueToString());
 		}
 	}
 
 	/**
-	 * Assert that a value is within a range (inclusive).
+	 * Assert that min <= actual <= max.
 	 * @param actual the value that should be within the range.
 	 * @param min the minimum value.
 	 * @param max the maximum value.
