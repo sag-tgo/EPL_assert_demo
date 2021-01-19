@@ -166,35 +166,53 @@ event Assert {
 	}
 
 	/**
-	 * Assert that 'actual' is greater than 'value'.
+	 * Assert that 'actual' is greater than 'min'.
 	 * @param actual the actual value
-	 * @param value the value that 'actual' should be greater than.
+	 * @param min the value that 'actual' should be greater than.
 	 * @param message description of what's being asserted.
 	 */
-	action isGreaterThan(any actual, any value, string message) {
+	action isGreaterThan(any actual, any min, string message) {
 		init();
 		if not enabled {
 			return;
 		}
 
-		if not actual > value {
+		if not actual > min {
 			fail(message);
 		}
 	}
 
 	/**
-	 * Assert that 'actual' is less than 'value'.
+	 * Assert that 'actual' is less than 'max'.
 	 * @param actual the actual value
-	 * @param value the value that 'actual' should be less than.
+	 * @param max the value that 'actual' should be less than.
 	 * @param message description of what's being asserted.
 	 */
-	action isLessThan(any actual, any value, string message) {
+	action isLessThan(any actual, any max, string message) {
 		init();
 		if not enabled {
 			return;
 		}
 
-		if not actual < value {
+		if not actual < max {
+			fail(message);
+		}
+	}
+
+	/**
+	 * Assert that a value is within a range (inclusive).
+	 * @param value the value that should be within the range.
+	 * @param min the minimum value.
+	 * @param max the maximum value.
+	 * @param message description of what's being asserted.
+	 */
+	action isInRange(any value, any min, any max, string message) {
+		init();
+		if not enabled {
+			return;
+		}
+
+		if not (value >= lower and value <= upper) {
 			fail(message);
 		}
 	}
