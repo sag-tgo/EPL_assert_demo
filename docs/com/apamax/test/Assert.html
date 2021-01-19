@@ -45,11 +45,11 @@
 <H2>
 <FONT SIZE="-1">com.apamax.test</FONT>
 <BR>Event Assert</H2>
-<HR>An assertion event to help with testing EPL applications. Instances of this event that are created in any way other than using the create action will be lazily initialized to log failed assertions at ERROR. To change the default behavior from that provided by lazy initialisation, or to explicitly declare the behavior, use the create action to create Assert event instances.<DL>
+<HR>An assertion event to help with testing EPL applications. Monitor-global instances of this event that are auto-initialized by the correlator will default to log failed assertions at ERROR. If you wish to be explicit or change the default behavior, initialise the instance with one of the create* actions. Instances of events that are local variables need to be explicitly initialized.<DL>
 <DT>
 <B>Version:</B>
 </DT>
-<DD>0.1</DD>
+<DD>0.2</DD>
 </DL>
 <HR>
 <A NAME="member_summary"></A>
@@ -65,7 +65,12 @@
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE><B><A HREF="Assert.html#enabled">enabled</A></B></CODE>
 <br>
-<br>Enabled/disabled flag. This allows an optimisation when asserts are disabled and gives the option of turning asserts on/off at runtime.</TD>
+<br>Enabled/disabled flag. This allows an assert instance to be turned on/off at runtime if desired.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;string</CODE></FONT></TD><TD><CODE><B><A HREF="Assert.html#messagePrefix">messagePrefix</A></B></CODE>
+<br>
+<br>Prefix on assertion failure messages.</TD>
 </TR>
 </TABLE>&nbsp;<A NAME="action_summary"></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
@@ -83,9 +88,9 @@
 <br>Create an instance of an Assert event.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#equal()">equal</A></B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#equal()">equal</A></B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that two values are equal. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.</TD>
+<br>Assert that actual = expected. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#fail()">fail</A></B>(string&nbsp;message)</CODE>
@@ -93,29 +98,34 @@
 <br>Fail an assertion.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isFalse()">isFalse</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isFalse()">isFalse</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that a boolean value is false.</TD>
+<br>Assert that value is false.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isGreaterThan()">isGreaterThan</A></B>(any&nbsp;actual,&nbsp;any&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isGreaterThan()">isGreaterThan</A></B>(any&nbsp;actual,&nbsp;any&nbsp;min,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that 'actual' is greater than 'value'.</TD>
+<br>Assert that actual > min.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isLessThan()">isLessThan</A></B>(any&nbsp;actual,&nbsp;any&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isInRange()">isInRange</A></B>(any&nbsp;actual,&nbsp;any&nbsp;min,&nbsp;any&nbsp;max,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that 'actual' is less than 'value'.</TD>
+<br>Assert that min <= actual <= max.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isTrue()">isTrue</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isLessThan()">isLessThan</A></B>(any&nbsp;actual,&nbsp;any&nbsp;max,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that a boolean value is true.</TD>
+<br>Assert that actual < max.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#notEqual()">notEqual</A></B>(any&nbsp;actual,&nbsp;any&nbsp;unexpected,&nbsp;string&nbsp;message)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#isTrue()">isTrue</A></B>(boolean&nbsp;value,&nbsp;string&nbsp;what)</CODE>
 <br>
-<br>Assert that two values are not equal. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.</TD>
+<br>Assert that value is true.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE></CODE><CODE><B><A HREF="Assert.html#notEqual()">notEqual</A></B>(any&nbsp;actual,&nbsp;any&nbsp;unexpected,&nbsp;string&nbsp;what)</CODE>
+<br>
+<br>Assert that actual != unexpected. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.</TD>
 </TR>
 </TABLE>&nbsp;<A NAME="member_detail"></A>
 <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
@@ -126,7 +136,11 @@
 <A NAME="enabled"></A>
 <H3>enabled</H3>
 <PRE>boolean&nbsp;<B>enabled</B>
-</PRE>Enabled/disabled flag. This allows an optimisation when asserts are disabled and gives the option of turning asserts on/off at runtime.<HR>
+</PRE>Enabled/disabled flag. This allows an assert instance to be turned on/off at runtime if desired.<HR>
+<A NAME="messagePrefix"></A>
+<H3>messagePrefix</H3>
+<PRE>string&nbsp;<B>messagePrefix</B>
+</PRE>Prefix on assertion failure messages.<HR>
 <A NAME="onFailedAssertion"></A>
 <H3>onFailedAssertion</H3>
 <PRE>action&lt;string&gt;&nbsp;<B>onFailedAssertion</B>
@@ -145,7 +159,7 @@
 <B>Parameters:</B>
 </DT>
 <DD>
-<tt>failedAssertCallback</tt>&nbsp;-&nbsp;- The action to invoke if an assertion fails.</DD>
+<tt>failedAssertCallback</tt>&nbsp;-&nbsp;The action to invoke if an assertion fails.</DD>
 </DL>
 <HR>
 <A NAME="createOpt()"></A>
@@ -156,14 +170,14 @@
 <B>Parameters:</B>
 </DT>
 <DD>
-<tt>enabled</tt>&nbsp;-&nbsp;- true = enabled, false = disabled.</DD>
+<tt>enabled</tt>&nbsp;-&nbsp;true = enabled, false = disabled.</DD>
 <DD>
-<tt>failedAssertCallback</tt>&nbsp;-&nbsp;- The action to invoke if an assertion fails.</DD>
+<tt>failedAssertCallback</tt>&nbsp;-&nbsp;The action to invoke if an assertion fails.</DD>
 </DL>
 <HR>
 <A NAME="equal()"></A>
 <H3>equal</H3>
-<PRE>void&nbsp;<B>equal</B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;message)</PRE>Assert that two values are equal. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.<DL>
+<PRE>void&nbsp;<B>equal</B>(any&nbsp;actual,&nbsp;any&nbsp;expected,&nbsp;string&nbsp;what)</PRE>Assert that actual = expected. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
@@ -172,7 +186,7 @@
 <DD>
 <tt>expected</tt>&nbsp;-&nbsp;the expected value.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of actual.</DD>
 </DL>
 <HR>
 <A NAME="fail()"></A>
@@ -187,59 +201,75 @@
 <HR>
 <A NAME="isFalse()"></A>
 <H3>isFalse</H3>
-<PRE>void&nbsp;<B>isFalse</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is false.<DL>
+<PRE>void&nbsp;<B>isFalse</B>(boolean&nbsp;value,&nbsp;string&nbsp;what)</PRE>Assert that value is false.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
 <tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is false.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of value.</DD>
 </DL>
 <HR>
 <A NAME="isGreaterThan()"></A>
 <H3>isGreaterThan</H3>
-<PRE>void&nbsp;<B>isGreaterThan</B>(any&nbsp;actual,&nbsp;any&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that 'actual' is greater than 'value'.<DL>
+<PRE>void&nbsp;<B>isGreaterThan</B>(any&nbsp;actual,&nbsp;any&nbsp;min,&nbsp;string&nbsp;what)</PRE>Assert that actual > min.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
 <tt>actual</tt>&nbsp;-&nbsp;the actual value</DD>
 <DD>
-<tt>value</tt>&nbsp;-&nbsp;the value that 'actual' should be greater than.</DD>
+<tt>min</tt>&nbsp;-&nbsp;the value that 'actual' should be greater than.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of actual.</DD>
+</DL>
+<HR>
+<A NAME="isInRange()"></A>
+<H3>isInRange</H3>
+<PRE>void&nbsp;<B>isInRange</B>(any&nbsp;actual,&nbsp;any&nbsp;min,&nbsp;any&nbsp;max,&nbsp;string&nbsp;what)</PRE>Assert that min <= actual <= max.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>actual</tt>&nbsp;-&nbsp;the value that should be within the range.</DD>
+<DD>
+<tt>min</tt>&nbsp;-&nbsp;the minimum value.</DD>
+<DD>
+<tt>max</tt>&nbsp;-&nbsp;the maximum value.</DD>
+<DD>
+<tt>what</tt>&nbsp;-&nbsp;description of actual.</DD>
 </DL>
 <HR>
 <A NAME="isLessThan()"></A>
 <H3>isLessThan</H3>
-<PRE>void&nbsp;<B>isLessThan</B>(any&nbsp;actual,&nbsp;any&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that 'actual' is less than 'value'.<DL>
+<PRE>void&nbsp;<B>isLessThan</B>(any&nbsp;actual,&nbsp;any&nbsp;max,&nbsp;string&nbsp;what)</PRE>Assert that actual < max.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
 <tt>actual</tt>&nbsp;-&nbsp;the actual value</DD>
 <DD>
-<tt>value</tt>&nbsp;-&nbsp;the value that 'actual' should be less than.</DD>
+<tt>max</tt>&nbsp;-&nbsp;the value that 'actual' should be less than.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of actual.</DD>
 </DL>
 <HR>
 <A NAME="isTrue()"></A>
 <H3>isTrue</H3>
-<PRE>void&nbsp;<B>isTrue</B>(boolean&nbsp;value,&nbsp;string&nbsp;message)</PRE>Assert that a boolean value is true.<DL>
+<PRE>void&nbsp;<B>isTrue</B>(boolean&nbsp;value,&nbsp;string&nbsp;what)</PRE>Assert that value is true.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
 <DD>
 <tt>value</tt>&nbsp;-&nbsp;the value that is being asserted is true.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of value.</DD>
 </DL>
 <HR>
 <A NAME="notEqual()"></A>
 <H3>notEqual</H3>
-<PRE>void&nbsp;<B>notEqual</B>(any&nbsp;actual,&nbsp;any&nbsp;unexpected,&nbsp;string&nbsp;message)</PRE>Assert that two values are not equal. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.<DL>
+<PRE>void&nbsp;<B>notEqual</B>(any&nbsp;actual,&nbsp;any&nbsp;unexpected,&nbsp;string&nbsp;what)</PRE>Assert that actual != unexpected. Note: This is a deep equality check because EPL's = and != operator are deep equality operators.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
@@ -248,7 +278,7 @@
 <DD>
 <tt>unexpected</tt>&nbsp;-&nbsp;the unexpected value.</DD>
 <DD>
-<tt>message</tt>&nbsp;-&nbsp;description of what's being asserted.</DD>
+<tt>what</tt>&nbsp;-&nbsp;description of actual.</DD>
 </DL>
 <HR>
 <HR>
