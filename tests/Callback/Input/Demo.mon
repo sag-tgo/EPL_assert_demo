@@ -7,14 +7,17 @@ monitor Demo {
 	action onload() {
 		log "test start" at INFO;
 
+        // All of these assertions will intentionally fail 
+        // to demonstrate failure messages in the log.
 		asserter.fail("This should not happen!");
         asserter.isTrue(false, "The sky is blue");
-        asserter.isFalse(true, "Pigs can't fly");
-        asserter.equal(5, 4, "2+2 should equal 4.");
-        asserter.notEqual(true, true, "true should not equal false.");
-        asserter.isGreaterThan(0, 0, "Expected something to be > 0");
-        asserter.isLessThan(0, 0, "Expected something to be < 0");
-        asserter.isInRange(10, 1, 5, "Expected to be in range 1-5.");
+        asserter.isFalse(true, "Pigs can fly");
+        asserter.equal(5, 4, "two plus two");
+        integer eventCount := 3;
+        asserter.notEqual("42", "42", "sequential events IDs");
+        asserter.isGreaterThan(eventCount, 7, "event count");
+        asserter.isLessThan(eventCount, 0, "event count");
+        asserter.isInRange(eventCount, 5, 10, "event count");
 
 		log "test end" at INFO;
 	}
