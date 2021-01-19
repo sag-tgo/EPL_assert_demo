@@ -165,5 +165,37 @@ event Assert {
 		}
 	}
 
-	// action isGreaterThan, isLessThan
+	/**
+	 * Assert that 'actual' is greater than 'value'.
+	 * @param actual the actual value
+	 * @param value the value that 'actual' should be greater than.
+	 * @param message description of what's being asserted.
+	 */
+	action isGreaterThan(any actual, any value, string message) {
+		init();
+		if not enabled {
+			return;
+		}
+
+		if not actual > value {
+			fail(message);
+		}
+	}
+
+	/**
+	 * Assert that 'actual' is less than 'value'.
+	 * @param actual the actual value
+	 * @param value the value that 'actual' should be less than.
+	 * @param message description of what's being asserted.
+	 */
+	action isLessThan(any actual, any value, string message) {
+		init();
+		if not enabled {
+			return;
+		}
+
+		if not actual < value {
+			fail(message);
+		}
+	}
 }

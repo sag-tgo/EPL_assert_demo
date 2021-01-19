@@ -12,6 +12,8 @@ monitor Demo {
         asserter.isFalse(true, "Pigs can't fly");
         asserter.equal(5, 4, "2+2 should equal 4.");
         asserter.notEqual(true, true, "true should not equal false.");
+        asserter.isGreaterThan(0, 0, "Expected something to be > 0");
+        asserter.isLessThan(0, 0, "Expected something to be < 0");
 
 		log "test end" at INFO;
 	}
