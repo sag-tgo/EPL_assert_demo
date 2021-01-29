@@ -1,4 +1,3 @@
-from pysys.constants import *
 from pysys.basetest import BaseTest
 from apama.correlator import CorrelatorHelper
 import os
