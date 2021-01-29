@@ -49,7 +49,7 @@
 <DT>
 <B>Version:</B>
 </DT>
-<DD>0.2</DD>
+<DD>0.3</DD>
 </DL>
 <HR>
 <A NAME="member_summary"></A>
@@ -83,7 +83,12 @@
 <br>Create an instance of an Assert event. The instance will be enabled.</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A></CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#createOpt()">createOpt</A></B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</CODE>
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A></CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#createFrom()">createFrom</A></B>(<A HREF="../../../com/apamax/test/AssertConfig.html" title="type in com.apamax.test">com.apamax.test.AssertConfig</A>&nbsp;config)</CODE>
+<br>
+<br>Create an instance of an Assert event from an AssertConfig event.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A></CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="Assert.html#createIf()">createIf</A></B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</CODE>
 <br>
 <br>Create an instance of an Assert event.</TD>
 </TR>
@@ -162,10 +167,21 @@
 <tt>failedAssertCallback</tt>&nbsp;-&nbsp;The action to invoke if an assertion fails.</DD>
 </DL>
 <HR>
-<A NAME="createOpt()"></A>
-<H3>createOpt</H3>
+<A NAME="createFrom()"></A>
+<H3>createFrom</H3>
 <PRE>
-<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A>&nbsp;static <B>createOpt</B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</PRE>Create an instance of an Assert event.<DL>
+<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A>&nbsp;static <B>createFrom</B>(<A HREF="../../../com/apamax/test/AssertConfig.html" title="type in com.apamax.test">com.apamax.test.AssertConfig</A>&nbsp;config)</PRE>Create an instance of an Assert event from an AssertConfig event.<DL>
+<DT>
+<B>Parameters:</B>
+</DT>
+<DD>
+<tt>config</tt>&nbsp;-&nbsp;The configuration to use.</DD>
+</DL>
+<HR>
+<A NAME="createIf()"></A>
+<H3>createIf</H3>
+<PRE>
+<A HREF="../../../com/apamax/test/Assert.html" title="type in com.apamax.test">com.apamax.test.Assert</A>&nbsp;static <B>createIf</B>(boolean&nbsp;enabled,&nbsp;action&lt;string&gt;&nbsp;failedAssertCallback)</PRE>Create an instance of an Assert event.<DL>
 <DT>
 <B>Parameters:</B>
 </DT>
