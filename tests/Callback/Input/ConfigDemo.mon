@@ -1,0 +1,26 @@
+using com.apamax.test.Assert;
+using com.apamax.test.AssertConfig;
+using com.apamax.test.AssertHelper;
+
+monitor ConfigDemo {
+
+	Assert asserter := Assert.createFrom(AssertConfig(true, AssertHelper.logAtError, "Custom prefix: "));
+
+	action onload() {
+		log "test start" at INFO;
+
+		// All of these assertions will intentionally fail 
+		// to demonstrate failure messages in the log.
+		asserter.fail("This should not happen!");
+		asserter.isTrue(false, "The sky is blue");
+		asserter.isFalse(true, "Pigs can fly");
+		asserter.equal(5, 4, "two plus two");
+		integer eventCount := 3;
+		asserter.notEqual("42", "42", "sequential events IDs");
+		asserter.isGreaterThan(eventCount, 7, "event count");
+		asserter.isLessThan(eventCount, 0, "event count");
+		asserter.isInRange(eventCount, 5, 10, "event count");
+
+		log "test end" at INFO;
+	}
+}

@@ -82,6 +82,19 @@ event Assert {
 	}
 
 	/**
+	 * Create an instance of an Assert event from an AssertConfig event.
+	 * @param config The configuration to use.
+	 */
+	static action createFrom(AssertConfig config) returns Assert {
+		Assert result := new Assert;
+		result.messagePrefix := config.messagePrefix;
+		result.onFailedAssertion := config.onFailedAssertion;
+		result.enabled := config.enabled;
+		result.initialized := true;
+		return result;
+	}
+
+	/**
 	 * Create an instance of an Assert event. The instance will be enabled.
 	 * @param failedAssertCallback The action to invoke if an assertion fails.
 	 */
