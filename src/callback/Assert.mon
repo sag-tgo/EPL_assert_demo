@@ -72,7 +72,7 @@ event Assert {
 	 * @param enabled true = enabled, false = disabled.
 	 * @param failedAssertCallback The action to invoke if an assertion fails.
 	 */
-	static action createOpt(boolean enabled, action<string> failedAssertCallback) returns Assert {
+	static action createIf(boolean enabled, action<string> failedAssertCallback) returns Assert {
 		Assert result := new Assert;
 		result.messagePrefix := DEFAULT_MESSAGE_PREFIX;
 		result.onFailedAssertion := failedAssertCallback;
@@ -86,7 +86,7 @@ event Assert {
 	 * @param failedAssertCallback The action to invoke if an assertion fails.
 	 */
 	static action create(action<string> failedAssertCallback) returns Assert {
-		return createOpt(true, failedAssertCallback);
+		return createIf(true, failedAssertCallback);
 	}
 
 	/**

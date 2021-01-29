@@ -5,7 +5,7 @@ using com.apamax.test.AssertHelper;
 
 monitor DebugAssert {
 
-	Assert asserter := Assert.createOpt(AssertHelper.isLoggingAtDebug(),
+	Assert asserter := Assert.createIf(AssertHelper.isLoggingAtDebug(),
 										AssertHelper.logAtError);
 
 	action onload() {

@@ -4,7 +4,7 @@ using com.softwareag.apama.demo.MyCalculator;
 
 monitor ConfigAssert {
 
-	Assert asserter := Assert.createOpt(AssertHelper.isConfigEnabled("asserts"),
+	Assert asserter := Assert.createIf(AssertHelper.isConfigEnabled("asserts"),
 										AssertHelper.logAtError);
 
 	action onload() {
