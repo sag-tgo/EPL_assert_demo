@@ -7,7 +7,7 @@ API documentation can be found [here](https://sag-tgo.github.io/EPL_assert_demo/
 ## Building docs
 From an Apama command prompt:
 
-`> apamadoc docs src/callback/AssertConfig.mon src/callback/Assert.mon src/AssertHelper.mon`
+`> apamadoc docs src/AssertConfig.mon src/Assert.mon src/AssertHelper.mon`
 
 ## Running demo tests
 > Note: The tests intentionally fail to demonstrate failure output.
