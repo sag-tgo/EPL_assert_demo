@@ -1,9 +1,0 @@
-using com.apama.exceptions.Exception;
-using com.apamax.test.#static.Expect;
-
-monitor TestExpect {
-	action onload() {
-		Expect.#true(false, "the sky is blue");
-		Expect.equal(2 + 2, 5, "Two plus two = four");
-	}
-}

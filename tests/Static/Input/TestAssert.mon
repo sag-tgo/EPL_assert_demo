@@ -1,9 +1,0 @@
-using com.apama.exceptions.Exception;
-using com.apamax.test.#static.Assert;
-
-monitor TestAssert {
-	action onload() {
-		Assert.#true(false, "the sky is blue");
-		Assert.equal(2 + 2, 5, "Two plus two = four");
-	}
-}
