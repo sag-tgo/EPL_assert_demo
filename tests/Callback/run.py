@@ -2,7 +2,6 @@ from pysys.basetest import BaseTest
 from apama.correlator import CorrelatorHelper
 import os
 
-
 class PySysTest(BaseTest):
 	def execute(self):
 		corr = CorrelatorHelper(self, name='correlator')
@@ -12,8 +11,9 @@ class PySysTest(BaseTest):
 		])
 		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/ManagementImpl.mon')
 		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/Management.mon')
-		corr.injectEPL('../../../src/callback/AssertConfig.mon')
-		corr.injectEPL('../../../src/callback/Assert.mon')
+		
+		corr.injectEPL('../../../src/AssertConfig.mon')
+		corr.injectEPL('../../../src/Assert.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
 
 		corr.injectEPL('EventDefs.mon')
