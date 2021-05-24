@@ -11,6 +11,8 @@
 
 package com.apamax.test;
 
+using com.apama.exceptions.StackTraceElement;
+
 /**
  * An assertion event to help with testing EPL applications.
  * Monitor-global instances of this event that are auto-initialized by the 
@@ -108,7 +110,23 @@ event Assert {
 			return;
 		}
 
-		onFailedAssertion(messagePrefix + message);
+		// Find the point in the user code that caused the failed assertion
+		string failedAssertSource := "???";
+		try {
+			context.throwStdException(); 
+		} catch (com.apama.exceptions.Exception e) {
+			sequence<StackTraceElement> stackTrace := e.getStackTrace();
+			string assertTypeName := stackTrace[0].getTypeName();
+			StackTraceElement ste;
+			for ste in e.getStackTrace() {
+				if ste.getTypeName() != assertTypeName {
+					failedAssertSource := ste.toString();
+					break;
+				}
+			}
+		}
+
+		onFailedAssertion(messagePrefix + message + " @{" + failedAssertSource + "}");
 	}
 
 	/**
