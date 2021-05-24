@@ -1,7 +1,11 @@
 using com.apamax.test.Assert;
 using com.apamax.test.AssertHelper;
-using com.softwareag.apama.demo.MyCalculator;
 
+/**
+ * Demonstrating enabling asserts via a correlator configuration option.
+ * Passing -Dasserts=true when starting the correlator will enable this assert
+ * instance.
+ */
 monitor ConfigAssert {
 
 	Assert asserter := Assert.createIf(AssertHelper.isConfigEnabled("asserts"),
@@ -10,25 +14,8 @@ monitor ConfigAssert {
 	action onload() {
 		log "test start" at INFO;
 
-		testMyCalculatorAddToZero();
-		testMyCalculatorAddToOne();
+		asserter.fail("Failed assertion!");
 
 		log "test end" at INFO;
-	}
-
-	action testMyCalculatorAddToZero() {
-		integer i := 0;
-		while i < 10 {
-			asserter.equal(MyCalculator.add(0, i), i, "0 + i");
-			i := i + 1;
-		}
-	}
-
-	action testMyCalculatorAddToOne() {
-		integer i := 0;
-		while i < 10 {
-			asserter.equal(MyCalculator.add(1, i), i, "1 + i");
-			i := i + 1;
-		}
 	}
 }

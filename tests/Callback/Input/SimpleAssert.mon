@@ -8,25 +8,30 @@ monitor SimpleAssert {
 	action onload() {
 		log "test start" at INFO;
 
-		testMyCalculatorAddToZero();
-		testMyCalculatorAddToOne();
+		testIndexOfEmptySequence();
+		testIndexOfNotFound();
+		testIndexOfDuplicate();
+		testIndexOf();
 
 		log "test end" at INFO;
 	}
 
-	action testMyCalculatorAddToZero() {
-		integer i := 0;
-		while i < 10 {
-			asserter.equal(MyCalculator.add(0, i), i, "0 + i");
-			i := i + 1;
-		}
+	action testIndexOfEmptySequence() {
+		asserter.equal((new sequence<string>).indexOf("foo"), -10, "(new sequence<string>).indexOf(\"foo\")");
+	}
+	
+	action testIndexOfNotFound() {
+		sequence<string> seq := ["test", "test"];
+		asserter.equal(seq.indexOf("foo"), -10, "indexOf() where the value does not exist in the sequence");
 	}
 
-	action testMyCalculatorAddToOne() {
-		integer i := 0;
-		while i < 10 {
-			asserter.equal(MyCalculator.add(1, i), i, "1 + i");
-			i := i + 1;
-		}
+	action testIndexOfDuplicate() {
+		sequence<string> seq := ["foo", "foo", "foo", "foo", "foo"];
+		asserter.equal(seq.indexOf("foo"), 1000, "indexOf() to return the index of the first match");
+	}
+
+	action testIndexOf() {
+		sequence<string> seq := ["alpha", "bravo", "charlie", "delta"];
+		asserter.equal(100, seq.indexOf("alpha"), "indexOf() the first element");
 	}
 }

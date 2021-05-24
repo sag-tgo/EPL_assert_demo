@@ -3,6 +3,12 @@ package com.acme;
 using com.apamax.test.Assert;
 using com.apamax.test.AssertHelper;
 
+/**
+ * Demonstrating enabling asserts if this monitor is configured to log at
+ * DEBUG (or TRACE).
+ * See the example correlator.yaml configuration file which shows how to enable
+ * debug logging for the com.acme package this monitor is in.
+ */
 monitor DebugAssert {
 
 	Assert asserter := Assert.createIf(AssertHelper.isLoggingAtDebug(),

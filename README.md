@@ -23,14 +23,14 @@ From an Apama command prompt in the tests directory:
 
 You can then look at the correlator.log files in each test's Output directory.
 
-## Excerpt from tests/Callback correlator output
+## Excerpt from tests/Simple correlator output
 ```
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: This should not happen!
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'The sky is blue' to equal true, got false
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'Pigs can fly' to equal false, got true
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'two plus two' to equal 4, got 5
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'sequential events IDs' to not equal, got 42
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be greater than 7, got 3
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be less than 0, got 3
-2021-01-19 16:40:05.574 ERROR [140311279957760] - Demo [5] Assertion failed: Expected 'event count' to be >=5 and <=10, got 3
+2021-05-24 14:25:23.639 ERROR [16948] - Demo [1] Assertion failed: This should not happen! @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:12}
+2021-05-24 14:25:23.639 ERROR [16948] - Demo [1] Assertion failed: Expected 'The sky is blue' to equal true, got false @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:13}
+2021-05-24 14:25:23.639 ERROR [16948] - Demo [1] Assertion failed: Expected 'Pigs can fly' to equal false, got true @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:14}
+2021-05-24 14:25:23.639 ERROR [16948] - Demo [1] Assertion failed: Expected 'two plus two' to equal 4, got 5 @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:15}
+2021-05-24 14:25:23.639 ERROR [16948] - Demo [1] Assertion failed: Expected 'sequential events IDs' to not equal, got 42 @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:17}
+2021-05-24 14:25:23.640 ERROR [16948] - Demo [1] Assertion failed: Expected 'event count' to be greater than 7, got 3 @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:18}
+2021-05-24 14:25:23.640 ERROR [16948] - Demo [1] Assertion failed: Expected 'event count' to be less than 0, got 3 @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:19}
+2021-05-24 14:25:23.640 ERROR [16948] - Demo [1] Assertion failed: Expected 'event count' to be >=5 and <=10, got 3 @{Demo.onload() C:\dev\git\EPL_assert_demo\tests\Simple\Input\Demo.mon:20}
 ```
