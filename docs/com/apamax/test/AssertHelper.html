@@ -1,176 +1,210 @@
-<HTML><!-- saved from url=(0014)about:internet -->
-
-
-<HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>AssertHelper</TITLE>
-<META NAME="keywords" CONTENT="AssertHelper&nbsp;event">
-<LINK REL="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
-<SCRIPT type="text/javascript">function windowTitle()
+<HTML>
+    <!-- saved from url=(0014)about:internet -->
+    
+    <HEAD>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <TITLE>AssertHelper</TITLE>
+        <META NAME="keywords" CONTENT="AssertHelper&nbsp;event">
+        <LINK REL="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">
+        <SCRIPT type="text/javascript">function windowTitle()
           {
           parent.document.title="AssertHelper";
           }
           </SCRIPT>
-<NOSCRIPT></NOSCRIPT>
-</HEAD>
-<BODY BGCOLOR="white" onload="windowTitle();">
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/AssertHelper.html"><B>FRAMES</B></A>  &nbsp;
+        <NOSCRIPT></NOSCRIPT>
+    </HEAD>
+    <BODY BGCOLOR="white" onload="windowTitle();">
+        <TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+            <TR>
+                <TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/AssertHelper.html"><B>FRAMES</B></A>  &nbsp;
 
             &nbsp;<A target="_top" HREF="AssertHelper.html"><B>NO FRAMES</B></A>  &nbsp;
             &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
-<NOSCRIPT>
-<A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-</FONT></TD>
-</TR>
-<TR>
-<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-<TR ALIGN="center" VALIGN="top">
-<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
+                        <NOSCRIPT>
+                            <A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
+                        </NOSCRIPT>
+                    </FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+                    <TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+                        <TR ALIGN="center" VALIGN="top">
+                            <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
               </TD><TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1"><A HREF="../../..//com/apamax/test/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;
               </TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT>&nbsp;
                 </A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1" WIDTH="100%" ALIGN="RIGHT"></TD>
-</TR>
-</TABLE>
-</TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
-</TR>
-</TABLE>
-<HR>
-<H2>
-<FONT SIZE="-1">com.apamax.test</FONT>
-<BR>Event AssertHelper</H2>
-<HR>An event providing static actions to help using the Assert event.<DL>
-<DT>
-<B>Version:</B>
-</DT>
-<DD>0.1</DD>
-</DL>
-<HR>
-<A NAME="action_summary"></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2"><B>Action summary</B></FONT></TH>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#dieWithError()">dieWithError</A></B>(string&nbsp;message)</CODE>
-<br>
-<br>Logs message at ERROR then terminates the monitor with the die statement.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#isConfigEnabled()">isConfigEnabled</A></B>(string&nbsp;key)</CODE>
-<br>
-<br>Checks if the given configuration key is true. See Apama documentation for Component.getConfigProperties() and for how to configure the correlator via YAML or command line arguments. If the given key does not exist, this action will return false. This action will return true if the value associated with the configuration key is "true" (case insensitive).</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#isLoggingAtDebug()">isLoggingAtDebug</A></B>()</CODE>
-<br>
-<br>Check if this monitor will log at DEBUG or not.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#logAtError()">logAtError</A></B>(string&nbsp;message)</CODE>
-<br>
-<br>Logs message at ERROR.</TD>
-</TR>
-<TR BGCOLOR="white" CLASS="TableRowColor">
-<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#throwWithError()">throwWithError</A></B>(string&nbsp;message)</CODE>
-<br>
-<br>Logs message at ERROR then throws a FailedAssertException.</TD>
-</TR>
-</TABLE>&nbsp;<A NAME="action_detail"></A>
-<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
-<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
-<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2"><B>Action detail</B></FONT></TH>
-</TR>
-</TABLE>
-<A NAME="dieWithError()"></A>
-<H3>dieWithError</H3>
-<PRE>void&nbsp;static <B>dieWithError</B>(string&nbsp;message)</PRE>Logs message at ERROR then terminates the monitor with the die statement.<DL>
-<DT>
-<B>Parameters:</B>
-</DT>
-<DD>
-<tt>message</tt>&nbsp;-&nbsp;- the message to log.</DD>
-</DL>
-<HR>
-<A NAME="isConfigEnabled()"></A>
-<H3>isConfigEnabled</H3>
-<PRE>boolean&nbsp;static <B>isConfigEnabled</B>(string&nbsp;key)</PRE>Checks if the given configuration key is true. See Apama documentation for Component.getConfigProperties() and for how to configure the correlator via YAML or command line arguments. If the given key does not exist, this action will return false. This action will return true if the value associated with the configuration key is "true" (case insensitive).<DL>
-<DT>
-<B>Parameters:</B>
-</DT>
-<DD>
-<tt>key</tt>&nbsp;-&nbsp;the config key to look up.</DD>
-</DL>
-<DL>
-<DT>
-<B>Returns:</B>
-</DT>
-<DD>true if the configuration option is enabled, false otherwise.</DD>
-</DL>
-<HR>
-<A NAME="isLoggingAtDebug()"></A>
-<H3>isLoggingAtDebug</H3>
-<PRE>boolean&nbsp;static <B>isLoggingAtDebug</B>()</PRE>Check if this monitor will log at DEBUG or not.<DL>
-<DT>
-<B>Returns:</B>
-</DT>
-<DD>true if the monitor this is called from is configured to log at DEBUG (or TRACE), false otherwise.</DD>
-</DL>
-<HR>
-<A NAME="logAtError()"></A>
-<H3>logAtError</H3>
-<PRE>void&nbsp;static <B>logAtError</B>(string&nbsp;message)</PRE>Logs message at ERROR.<DL>
-<DT>
-<B>Parameters:</B>
-</DT>
-<DD>
-<tt>message</tt>&nbsp;-&nbsp;- the message to log.</DD>
-</DL>
-<HR>
-<A NAME="throwWithError()"></A>
-<H3>throwWithError</H3>
-<PRE>void&nbsp;static <B>throwWithError</B>(string&nbsp;message)</PRE>Logs message at ERROR then throws a FailedAssertException.<DL>
-<DT>
-<B>Parameters:</B>
-</DT>
-<DD>
-<tt>message</tt>&nbsp;-&nbsp;- the message to log and to go with the exception.</DD>
-</DL>
-<HR>
-<HR>
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
-<TR>
-<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/AssertHelper.html"><B>FRAMES</B></A>  &nbsp;
+                        </TR>
+                    </TABLE>
+                </TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+            </TR>
+            <TR>
+                <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
+            </TR>
+        </TABLE>
+        <HR>
+        <H2>
+            <FONT SIZE="-1">com.apamax.test</FONT>
+            <BR>
+            Event AssertHelper
+        </H2>
+        <HR>
+        An event providing static actions to help using the Assert event.
+        <DL>
+            <DT>
+                <B>Version:</B>
+            </DT>
+            <DD>0.1</DD>
+        </DL>
+        <HR>
+        <A NAME="action_summary"></A>
+        <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+            <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+                <TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2"><B>Action summary</B></FONT></TH>
+            </TR>
+            <TR BGCOLOR="white" CLASS="TableRowColor">
+                <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#dieWithError()">dieWithError</A></B>(string&nbsp;message)</CODE>
+                    <br>
+                    <br>
+                    Logs message at ERROR then terminates the monitor with the die statement.</TD>
+            </TR>
+            <TR BGCOLOR="white" CLASS="TableRowColor">
+                <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#isConfigEnabled()">isConfigEnabled</A></B>(string&nbsp;key)</CODE>
+                    <br>
+                    <br>
+                    Checks if the given configuration key is true. See Apama documentation for Component.getConfigProperties() and for how to configure the correlator via YAML or command line arguments. If the given key does not exist, this action will return false. This action will return true if the value associated with the configuration key is "true" (case insensitive).</TD>
+            </TR>
+            <TR BGCOLOR="white" CLASS="TableRowColor">
+                <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#isLoggingAtDebug()">isLoggingAtDebug</A></B>()</CODE>
+                    <br>
+                    <br>
+                    Check if this monitor will log at DEBUG or not.</TD>
+            </TR>
+            <TR BGCOLOR="white" CLASS="TableRowColor">
+                <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#logAtError()">logAtError</A></B>(string&nbsp;message)</CODE>
+                    <br>
+                    <br>
+                    Logs message at ERROR.</TD>
+            </TR>
+            <TR BGCOLOR="white" CLASS="TableRowColor">
+                <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#throwWithError()">throwWithError</A></B>(string&nbsp;message)</CODE>
+                    <br>
+                    <br>
+                    Logs message at ERROR then throws a FailedAssertException.</TD>
+            </TR>
+        </TABLE>
+        &nbsp;<A NAME="action_detail"></A>
+        <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+            <TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+                <TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2"><B>Action detail</B></FONT></TH>
+            </TR>
+        </TABLE>
+        <A NAME="dieWithError()"></A>
+        <H3>dieWithError</H3>
+        <PRE>
+            void&nbsp;static <B>dieWithError</B>(string&nbsp;message)
+        </PRE>
+        Logs message at ERROR then terminates the monitor with the die statement.
+        <DL>
+            <DT>
+                <B>Parameters:</B>
+            </DT>
+            <DD>
+                <tt>message</tt>&nbsp;-&nbsp;- the message to log.
+            </DD>
+        </DL>
+        <HR>
+        <A NAME="isConfigEnabled()"></A>
+        <H3>isConfigEnabled</H3>
+        <PRE>
+            boolean&nbsp;static <B>isConfigEnabled</B>(string&nbsp;key)
+        </PRE>
+        Checks if the given configuration key is true. See Apama documentation for Component.getConfigProperties() and for how to configure the correlator via YAML or command line arguments. If the given key does not exist, this action will return false. This action will return true if the value associated with the configuration key is "true" (case insensitive).
+        <DL>
+            <DT>
+                <B>Parameters:</B>
+            </DT>
+            <DD>
+                <tt>key</tt>&nbsp;-&nbsp;the config key to look up.
+            </DD>
+        </DL>
+        <DL>
+            <DT>
+                <B>Returns:</B>
+            </DT>
+            <DD>true if the configuration option is enabled, false otherwise.</DD>
+        </DL>
+        <HR>
+        <A NAME="isLoggingAtDebug()"></A>
+        <H3>isLoggingAtDebug</H3>
+        <PRE>
+            boolean&nbsp;static <B>isLoggingAtDebug</B>()
+        </PRE>
+        Check if this monitor will log at DEBUG or not.
+        <DL>
+            <DT>
+                <B>Returns:</B>
+            </DT>
+            <DD>true if the monitor this is called from is configured to log at DEBUG (or TRACE), false otherwise.</DD>
+        </DL>
+        <HR>
+        <A NAME="logAtError()"></A>
+        <H3>logAtError</H3>
+        <PRE>
+            void&nbsp;static <B>logAtError</B>(string&nbsp;message)
+        </PRE>
+        Logs message at ERROR.
+        <DL>
+            <DT>
+                <B>Parameters:</B>
+            </DT>
+            <DD>
+                <tt>message</tt>&nbsp;-&nbsp;- the message to log.
+            </DD>
+        </DL>
+        <HR>
+        <A NAME="throwWithError()"></A>
+        <H3>throwWithError</H3>
+        <PRE>
+            void&nbsp;static <B>throwWithError</B>(string&nbsp;message)
+        </PRE>
+        Logs message at ERROR then throws a FailedAssertException.
+        <DL>
+            <DT>
+                <B>Parameters:</B>
+            </DT>
+            <DD>
+                <tt>message</tt>&nbsp;-&nbsp;- the message to log and to go with the exception.
+            </DD>
+        </DL>
+        <HR>
+        <HR>
+        <TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+            <TR>
+                <TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2"><A target="_top" HREF="../../../index.html?com/apamax/test/AssertHelper.html"><B>FRAMES</B></A>  &nbsp;
 
             &nbsp;<A target="_top" HREF="AssertHelper.html"><B>NO FRAMES</B></A>  &nbsp;
             &nbsp;<SCRIPT type="text/javascript"></SCRIPT>
-<NOSCRIPT>
-<A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
-</NOSCRIPT>
-</FONT></TD>
-</TR>
-<TR>
-<TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
-<TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
-<TR ALIGN="center" VALIGN="top">
-<TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
+                        <NOSCRIPT>
+                            <A HREF="../../../alltypes-noframe.html"><B>All Classes</B></A>
+                        </NOSCRIPT>
+                    </FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="2" BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+                    <TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+                        <TR ALIGN="center" VALIGN="top">
+                            <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;
               </TD><TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1"><A HREF="../../..//com/apamax/test/package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;
               </TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1"><A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT>&nbsp;
                 </A></TD><TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1" WIDTH="100%" ALIGN="RIGHT"></TD>
-</TR>
-</TABLE>
-</TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
-</TR>
-<TR>
-<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
-</TR>
-</TABLE>
-<HR>
-</BODY>
+                        </TR>
+                    </TABLE>
+                </TD><TD ALIGN="right" VALIGN="top" ROWSPAN="3"><EM></EM></TD>
+            </TR>
+            <TR>
+                <TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">SUMMARY:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_summary">ACTION</A></FONT></TD><TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">DETAIL:&nbsp;IMPORT&nbsp;|&nbsp;CONSTANT&nbsp;|&nbsp;MEMBER&nbsp;|&nbsp;<A HREF="#action_detail">ACTION</A></FONT></TD>
+            </TR>
+        </TABLE>
+        <HR>
+    </BODY>
 </HTML>
