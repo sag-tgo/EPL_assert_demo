@@ -11,8 +11,7 @@ class PySysTest(BaseTest):
 		])
 		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/ManagementImpl.mon')
 		corr.injectEPL(os.getenv('APAMA_HOME','') + '/monitors/Management.mon')
-		
-		corr.injectEPL('../../../src/AssertConfig.mon')
+
 		corr.injectEPL('../../../src/Assert.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
 
@@ -20,7 +19,7 @@ class PySysTest(BaseTest):
 		
 		for test in ['ConfigAssert.mon', 'DebugAssert.mon', 
 					'SimpleAssert.mon', 'SimpleAssert2.mon',
-					'Demo.mon', 'ConfigDemo.mon']:
+					'Demo.mon']:
 			corr.injectEPL(test)
 			corr.flush()
 		corr.shutdown()
