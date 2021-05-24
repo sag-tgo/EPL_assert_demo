@@ -77,7 +77,7 @@
                 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;boolean</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#isLoggingAtDebug()">isLoggingAtDebug</A></B>()</CODE>
                     <br>
                     <br>
-                    Check if this monitor will log at DEBUG or not.</TD>
+                    Check if the monitor this is called from will log at DEBUG or not.</TD>
             </TR>
             <TR BGCOLOR="white" CLASS="TableRowColor">
                 <TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1"><CODE>&nbsp;void</CODE></FONT></TD><TD><CODE>static </CODE><CODE><B><A HREF="AssertHelper.html#logAtError()">logAtError</A></B>(string&nbsp;message)</CODE>
@@ -104,12 +104,19 @@
             void&nbsp;static <B>dieWithError</B>(string&nbsp;message)
         </PRE>
         Logs message at ERROR then terminates the monitor with the die statement.
+        <br>
+        <br>
+         Example: <pre>
+        <br>
+        Assert asserter := Assert.create(AssertHelper.dieWithError);
+        <br>
+        </pre>
         <DL>
             <DT>
                 <B>Parameters:</B>
             </DT>
             <DD>
-                <tt>message</tt>&nbsp;-&nbsp;- the message to log.
+                <tt>message</tt>&nbsp;-&nbsp;the message to log.
             </DD>
         </DL>
         <HR>
@@ -119,6 +126,13 @@
             boolean&nbsp;static <B>isConfigEnabled</B>(string&nbsp;key)
         </PRE>
         Checks if the given configuration key is true. See Apama documentation for Component.getConfigProperties() and for how to configure the correlator via YAML or command line arguments. If the given key does not exist, this action will return false. This action will return true if the value associated with the configuration key is "true" (case insensitive).
+        <br>
+        <br>
+         Example: <pre>
+        <br>
+        Assert asserter := Assert.createIf(AssertHelper.isConfigEnabled("asserts"), AssertHelper.logAtError);
+        <br>
+        </pre>
         <DL>
             <DT>
                 <B>Parameters:</B>
@@ -139,7 +153,14 @@
         <PRE>
             boolean&nbsp;static <B>isLoggingAtDebug</B>()
         </PRE>
-        Check if this monitor will log at DEBUG or not.
+        Check if the monitor this is called from will log at DEBUG or not.
+        <br>
+        <br>
+         Example: <pre>
+        <br>
+        Assert asserter := Assert.createIf(AssertHelper.isLoggingAtDebug(), AssertHelper.throwWithError);
+        <br>
+        </pre>
         <DL>
             <DT>
                 <B>Returns:</B>
@@ -153,12 +174,19 @@
             void&nbsp;static <B>logAtError</B>(string&nbsp;message)
         </PRE>
         Logs message at ERROR.
+        <br>
+        <br>
+         Example: <pre>
+        <br>
+        Assert asserter := Assert.create(AssertHelper.logAtError);
+        <br>
+        </pre>
         <DL>
             <DT>
                 <B>Parameters:</B>
             </DT>
             <DD>
-                <tt>message</tt>&nbsp;-&nbsp;- the message to log.
+                <tt>message</tt>&nbsp;-&nbsp;the message to log.
             </DD>
         </DL>
         <HR>
@@ -168,12 +196,19 @@
             void&nbsp;static <B>throwWithError</B>(string&nbsp;message)
         </PRE>
         Logs message at ERROR then throws a FailedAssertException.
+        <br>
+        <br>
+         Example: <pre>
+        <br>
+        Assert asserter := Assert.create(AssertHelper.throwWithError);
+        <br>
+        </pre>
         <DL>
             <DT>
                 <B>Parameters:</B>
             </DT>
             <DD>
-                <tt>message</tt>&nbsp;-&nbsp;- the message to log and to go with the exception.
+                <tt>message</tt>&nbsp;-&nbsp;the message to log and to go with the exception.
             </DD>
         </DL>
         <HR>
