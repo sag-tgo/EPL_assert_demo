@@ -23,7 +23,12 @@ event AssertHelper {
 
 	/**
 	 * Logs message at ERROR.
-	 * @param message - the message to log.
+	 * 
+	 * Example:
+<code>
+Assert asserter := Assert.create(AssertHelper.logAtError);
+</code>
+	 * @param message the message to log.
 	 */
 	static action logAtError(string message) {
 		log message at ERROR;
@@ -31,7 +36,12 @@ event AssertHelper {
 
 	/**
 	 * Logs message at ERROR then throws a FailedAssertException.
-	 * @param message - the message to log and to go with the exception.
+	 * 
+	 * Example:
+<code>
+Assert asserter := Assert.create(AssertHelper.throwWithError);
+</code>
+	 * @param message the message to log and to go with the exception.
 	 */
 	static action throwWithError(string message) {
 		logAtError(message);
@@ -40,7 +50,12 @@ event AssertHelper {
 
 	/**
 	 * Logs message at ERROR then terminates the monitor with the die statement.
-	 * @param message - the message to log.
+	 * 
+	 * Example:
+<code>
+Assert asserter := Assert.create(AssertHelper.dieWithError);
+</code>
+	 * @param message the message to log.
 	 */
 	static action dieWithError(string message) {
 		logAtError(message);
@@ -54,6 +69,11 @@ event AssertHelper {
 	 * If the given key does not exist, this action will return false.
 	 * This action will return true if the value associated with the configuration key
 	 * is "true" (case insensitive).
+	 * 
+	 * Example:
+<code>
+Assert asserter := Assert.createIf(AssertHelper.isConfigEnabled("asserts"), AssertHelper.logAtError);
+</code>
 	 * @param key the config key to look up.
 	 * @returns true if the configuration option is enabled, false otherwise.
 	 */
@@ -63,7 +83,12 @@ event AssertHelper {
 	}
 
 	/**
-	 * Check if this monitor will log at DEBUG or not.
+	 * Check if the monitor this is called from will log at DEBUG or not.
+	 * 
+	 * Example:
+<code>
+Assert asserter := Assert.createIf(AssertHelper.isLoggingAtDebug(), AssertHelper.throwWithError);
+</code>
 	 * @returns true if the monitor this is called from is configured to log at
 	 * DEBUG (or TRACE), false otherwise.
 	 */
