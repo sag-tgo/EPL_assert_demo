@@ -1,0 +1,16 @@
+using com.apamax.test.Assert;
+using com.apamax.test.AssertHelper;
+
+monitor AssertDieWithError {
+
+	Assert asserter := Assert.create(AssertHelper.dieWithError);
+
+	action onload() {
+		log "test start" at INFO;
+
+		asserter.fail("one");
+		asserter.fail("two");
+
+		log "test end" at INFO;
+	}
+}

@@ -14,11 +14,9 @@ class PySysTest(BaseTest):
 
 		corr.injectEPL('../../../src/Assert.mon')
 		corr.injectEPL('../../../src/AssertHelper.mon')
-
-		corr.injectEPL('EventDefs.mon')
 		
 		for test in ['ConfigAssert.mon', 'DebugAssert.mon', 
-					'SimpleAssert.mon', 'SimpleAssert2.mon']:
+					'AssertDieWithError.mon']:
 			corr.injectEPL(test)
 			corr.flush()
 		corr.shutdown()

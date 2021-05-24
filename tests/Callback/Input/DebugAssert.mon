@@ -18,7 +18,7 @@ monitor DebugAssert {
 		log "Logging at DEBUG" at DEBUG;
 		log "test start" at INFO;
 
-		asserter.fail("Failed assertion!");
+		asserter.fail("");
 
 		log "test end" at INFO;
 	}

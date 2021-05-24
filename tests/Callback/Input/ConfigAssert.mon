@@ -14,7 +14,7 @@ monitor ConfigAssert {
 	action onload() {
 		log "test start" at INFO;
 
-		asserter.fail("Failed assertion!");
+		asserter.fail("");
 
 		log "test end" at INFO;
 	}
