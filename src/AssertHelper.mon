@@ -66,11 +66,13 @@ Assert asserter := Assert.create(AssertHelper.dieWithError);
 	 * Checks if the given configuration key is true.
 	 * See Apama documentation for Component.getConfigProperties() and
 	 * for how to configure the correlator via YAML or command line arguments.
-	 * If the given key does not exist, this action will return false.
-	 * This action will return true if the value associated with the configuration key
-	 * is "true" (case insensitive).
-	 * 
-	 * Example:
+	 * This action will return true if the value associated with the
+	 * configuration key is "true" (case insensitive) and return false for any
+	 * other value or if the key doesn't exist.
+	 *
+	 * This action could be used with the Assert.createIf action to allow
+	 * asserts in user code to be enabled/disabled via normal correlator
+	 * configuration methods instead of modifying code. For example:
 <code>
 Assert asserter := Assert.createIf(AssertHelper.isConfigEnabled("asserts"), AssertHelper.logAtError);
 </code>
